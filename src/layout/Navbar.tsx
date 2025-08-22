@@ -11,17 +11,21 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { role } from "@/constents/role"
 import { authApi, useLogoutMutation, useUserInfoQuery } from "@/redux/features/auth/auth.api"
 import { useAppDispatch } from "@/redux/hooks"
 import { Link } from "react-router"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-  { href: "/", label: "Home", active: true },
-  { href: "/about", label: "About" },
-  { href: "/features", label: "Features" },
-  { href: "/contact", label: "Contact" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/", label: "Home", active: true, role: "PUBLIC" },
+  { href: "/about", label: "About", role: "PUBLIC" },
+  { href: "/features", label: "Features", role: "PUBLIC" },
+  { href: "/contact", label: "Contact", role: "PUBLIC" },
+  { href: "/faq", label: "FAQ", role: "PUBLIC" },
+  { href: "/admin", label: "Dashboard", role: role.admin },
+  { href: "/driver", label: "Dashboard", role: role.driver },
+  { href: "/rider", label: "Dashboard", role: role.rider },
 ]
 
 export default function Navbar() {
@@ -101,15 +105,20 @@ export default function Navbar() {
             <NavigationMenu className="h-full *:h-full max-md:hidden">
               <NavigationMenuList className="h-full gap-2">
                 {navigationLinks.map((link, index) => (
-                  <NavigationMenuItem key={index} className="h-full">
-                    <NavigationMenuLink
-                      asChild
-                      active={link.active}
-                      className="text-muted-foreground hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!"
-                    >
-                      <Link to={link.href}>{link.label}</Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
+                  <div>
+                    {link.role === "PUBLIC" &&
+                      (<NavigationMenuItem key={index} className="h-full">
+                        <NavigationMenuLink asChild active={link.active} className="text-muted-foreground hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                          <Link to={link.href}>{link.label}</Link>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>)}
+                      {link.role === data?.data?.role &&
+                      (<NavigationMenuItem key={index} className="h-full">
+                        <NavigationMenuLink asChild active={link.active} className="text-muted-foreground hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                          <Link to={link.href}>{link.label}</Link>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>)}
+                  </div>
                 ))}
               </NavigationMenuList>
             </NavigationMenu>

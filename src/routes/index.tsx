@@ -1,13 +1,18 @@
 import App from "@/App";
 import DashboardLayout from "@/layout/DashboardLayout";
 import About from "@/pages/About";
-import Analytics from "@/pages/Admin/Analytics";
-import Requests from "@/pages/Driver/Requests";
 import HomePage from "@/pages/HomePage";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
-import RequestRide from "@/pages/Rider/RequestRide";
+import generateRoutes from "@/utils/generateRoutes";
 import { createBrowserRouter, Navigate } from "react-router";
+import { adminSidebarItems } from "./adminSidebarItems";
+import { riderSidebarItems } from "./riderSidebarItems";
+import { driverSidebarItems } from "./driverSidebarItems";
+import { withAuth } from "@/utils/withAuth";
+import { role } from "@/constents/role";
+import Unauthorized from "@/pages/Restricted/Unauthorized";
+import AccessDenied from "@/pages/Restricted/AccessDenied";
 
 
 
@@ -27,36 +32,28 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        Component: DashboardLayout,
+        Component: withAuth(DashboardLayout, role.admin),
         path: "/admin",
         children: [
             { index: true, element: <Navigate to={"/admin/analytics"} /> },
-            {
-                Component: Analytics,
-                path: "analytics",
-            }
+            ...generateRoutes(adminSidebarItems)
         ]
     },
     {
-        Component: DashboardLayout,
+        Component: withAuth(DashboardLayout, role.rider),
         path: "/rider",
         children: [
             { index: true, element: <Navigate to={"/rider/request-ride"} /> },
-            {
-                Component: RequestRide,
-                path: "request-ride",
-            }
+            ...generateRoutes(riderSidebarItems)
         ]
     },
     {
-        Component: DashboardLayout,
+        Component: withAuth(DashboardLayout, role.driver),
         path: "/driver",
         children: [
             { index: true, element: <Navigate to={"/driver/requests"} /> },
-            {
-                Component: Requests,
-                path: "requests",
-            }
+            ...generateRoutes(driverSidebarItems)
+
         ]
     },
     {
@@ -67,4 +64,13 @@ export const router = createBrowserRouter([
         Component: Register,
         path: "/register"
     },
+    {
+        Component: Unauthorized,
+        path: "/unauthorized"
+    },
+    {
+        Component: AccessDenied,
+        path: "/access-denied"
+    },
+    
 ])
