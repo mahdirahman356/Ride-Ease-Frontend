@@ -1,7 +1,6 @@
 import ManageProfileForm from "@/modules/ManageProfileForm";
 
-const AdminManageProfile = () => {
-
+const RiderManageProfile = () => {
     return (
         <div className="flex justify-center items-center">
             <div className="w-full max-w-sm p-4">
@@ -11,4 +10,4 @@ const AdminManageProfile = () => {
     );
 };
 
-export default AdminManageProfile;
+export default RiderManageProfile;

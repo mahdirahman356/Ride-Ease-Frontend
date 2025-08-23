@@ -33,11 +33,6 @@ export interface IUser {
     auths: IAuthProvider[]
 }
 
-export interface ILocation {
-    address?: string;
-    lat: number;
-    lng: number;
-}
 
 
 export type RideStatus = "REQUESTED" | "ACCEPTED" | "REJECTED" | "PICKED_UP" | "IN_TRANSIT" | "COMPLETED" | "CANCELLED";
@@ -61,8 +56,10 @@ export interface IRide {
     _id: string,
     rider: driverAndRider,
     driver: driverAndRider,
-    pickupLocation: ILocation,
-    destinationLocation: ILocation,
+    pickupLocation: string,
+    destinationLocation: string,
+    fareEstimation: number,
+    paymentMethod: string,
     status: RideStatus,
     statusHistory: IStatusHistory,
     createdAt: string

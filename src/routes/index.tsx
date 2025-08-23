@@ -14,6 +14,7 @@ import { role } from "@/constents/role";
 import Unauthorized from "@/pages/Restricted/Unauthorized";
 import AccessDenied from "@/pages/Restricted/AccessDenied";
 import type { TRole } from "@/types";
+import RideDetails from "@/pages/Rider/RideDetails";
 
 
 
@@ -45,7 +46,11 @@ export const router = createBrowserRouter([
         path: "/rider",
         children: [
             { index: true, element: <Navigate to={"/rider/request-ride"} /> },
-            ...generateRoutes(riderSidebarItems)
+            ...generateRoutes(riderSidebarItems),
+            {
+                Component: RideDetails,
+                path: "ride-details/:id"
+            }
         ]
     },
     {
@@ -73,5 +78,5 @@ export const router = createBrowserRouter([
         Component: AccessDenied,
         path: "/access-denied"
     },
-    
+
 ])

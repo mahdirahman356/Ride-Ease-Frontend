@@ -148,7 +148,7 @@ const RideOversight = () => {
                         <TableHead>Destination Location</TableHead>
                         <TableHead>Rider</TableHead>
                         <TableHead>Driver</TableHead>
-                        <TableHead>Fare</TableHead>
+                        <TableHead>Fare range</TableHead>
                         <TableHead>Ride Status</TableHead>
                         <TableHead>Date & Time</TableHead>
                     </TableRow>
@@ -156,8 +156,8 @@ const RideOversight = () => {
                 <TableBody>
                     {data?.data?.map((item: IRide) => (
                         <TableRow key={item._id}>
-                            <TableCell>{item.pickupLocation.address}</TableCell>
-                            <TableCell>{item.destinationLocation.address}</TableCell>
+                            <TableCell>{item.pickupLocation}</TableCell>
+                            <TableCell>{item.destinationLocation}</TableCell>
                             <TableCell>
                                 <div className="flex items-center gap-3">
                                     <div>
@@ -183,7 +183,7 @@ const RideOversight = () => {
                                     </div>
                                 </div>
                             </TableCell>
-                            <TableCell >100Tk</TableCell>
+                            <TableCell >{item.fareEstimation}TK</TableCell>
                             <TableCell >{item.status}</TableCell>
                             <TableCell > {format(new Date(item.createdAt), "PP")}</TableCell>
                         </TableRow>
