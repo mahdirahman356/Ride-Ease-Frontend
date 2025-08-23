@@ -1,6 +1,7 @@
 import Requests from "@/pages/Driver/Requests";
+import type { ISidebarItem } from "@/types";
 
-export const driverSidebarItems = [
+export const driverSidebarItems: ISidebarItem[] = [
     {
         title: "Requests",
         items: [

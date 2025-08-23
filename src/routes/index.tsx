@@ -13,6 +13,7 @@ import { withAuth } from "@/utils/withAuth";
 import { role } from "@/constents/role";
 import Unauthorized from "@/pages/Restricted/Unauthorized";
 import AccessDenied from "@/pages/Restricted/AccessDenied";
+import type { TRole } from "@/types";
 
 
 
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        Component: withAuth(DashboardLayout, role.admin),
+        Component: withAuth(DashboardLayout, role.admin as TRole),
         path: "/admin",
         children: [
             { index: true, element: <Navigate to={"/admin/analytics"} /> },
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        Component: withAuth(DashboardLayout, role.rider),
+        Component: withAuth(DashboardLayout, role.rider as TRole),
         path: "/rider",
         children: [
             { index: true, element: <Navigate to={"/rider/request-ride"} /> },
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        Component: withAuth(DashboardLayout, role.driver),
+        Component: withAuth(DashboardLayout, role.driver as TRole),
         path: "/driver",
         children: [
             { index: true, element: <Navigate to={"/driver/requests"} /> },

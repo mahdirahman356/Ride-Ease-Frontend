@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
+import type { ISidebarItem } from "@/types";
 
-export const generateRoutes = (sidebarItems: { items: any[]; }[]) => {
+export const generateRoutes = (sidebarItems: ISidebarItem[]) => {
     return sidebarItems.flatMap((section) => 
     section.items.map((route) => ({
              path: route.url,
