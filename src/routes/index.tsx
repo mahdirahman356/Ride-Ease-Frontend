@@ -15,6 +15,9 @@ import Unauthorized from "@/pages/Restricted/Unauthorized";
 import AccessDenied from "@/pages/Restricted/AccessDenied";
 import type { TRole } from "@/types";
 import RideDetails from "@/pages/Rider/RideDetails";
+import Features from "@/pages/Features";
+import FAQ from "@/pages/FAQ";
+import Contact from "@/pages/Rider/Contact";
 
 
 
@@ -30,7 +33,19 @@ export const router = createBrowserRouter([
             {
                 Component: About,
                 path: "about"
-            }
+            },
+            {
+                Component: Features,
+                path: "features"
+            },
+            {
+                Component: Contact,
+                path: "contact"
+            },
+            {
+                Component: FAQ,
+                path: "faq"
+            },
         ]
     },
     {

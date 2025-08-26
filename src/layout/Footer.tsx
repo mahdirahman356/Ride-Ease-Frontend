@@ -3,7 +3,7 @@ import footerImage from "../assets/image/footer-image.png"
 const Footer = () => {
     return (
         <footer className="bg-muted">
-            <div className="max-w-7xl px-4 mx-auto lg:grid lg:grid-cols-5 ">
+            <div className="max-w-7xl px-6 mx-auto lg:grid lg:grid-cols-5 ">
                 <div className="hidden relative md:block lg:col-span-2 md:h-full">
                     <img
                         src={footerImage}

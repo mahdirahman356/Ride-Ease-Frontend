@@ -1,61 +1,133 @@
+import { Check } from "lucide-react";
+
+const teamMembers = [
+    {
+        name: "Jane Doe",
+        role: "CEO & Founder",
+        image: "https://i.ibb.co/LzsXvbRv/author-7.jpg",
+        bio: "Jane brings over 10 years of experience in tech and transportation. Passionate about building innovative solutions.",
+        linkedin: "#",
+        twitter: "#",
+    },
+    {
+        name: "John Smith",
+        role: "CTO",
+        image: "https://i.ibb.co/FqyYHzdC/author-5.jpg",
+        bio: "John ensures RideXpress’s platform remains fast, reliable, and secure with his full-stack expertise.",
+        linkedin: "#",
+        twitter: "#",
+    },
+    {
+        name: "Sarah Lee",
+        role: "Head of Operations",
+        image: "https://i.ibb.co/NnVHbFjh/christopher-campbell-r-DEOVt-E7v-Os-unsplash.jpg",
+        bio: "Sarah oversees day-to-day operations and driver support, ensuring smooth ride experiences.",
+        linkedin: "#",
+        twitter: "#",
+    },
+    {
+        name: "Michael Tan",
+        role: "Lead Designer",
+        image: "https://i.ibb.co/wrgHTw6D/author-6.jpg",
+        bio: "Michael creates intuitive, user-friendly interfaces, ensuring a polished experience across devices.",
+        linkedin: "#",
+        twitter: "#",
+    },
+    {
+        name: "Priya Patel",
+        role: "Marketing & Community Manager",
+        image: "https://i.ibb.co/XxNQ4gFq/author-1.jpg",
+        bio: "Priya leads outreach efforts, managing promotions and community engagement for RideXpress.",
+        linkedin: "#",
+        twitter: "#",
+    },
+];
 
 const About = () => {
     return (
-      <div>
-            <p className="text-center my-9 font-black">This About Page</p>
-            <p className="px-4 text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi ab repellat dignissimos necessitatibus commodi debitis, numquam sit? Libero dignissimos cupiditate in, aliquid, esse ullam incidunt aspernatur quia officiis rerum odio?
-                Velit architecto nulla expedita eum a eaque. In assumenda iste harum officia veritatis vel. Deleniti facilis quis ipsa, et, aut facere iure odit labore optio natus soluta ullam ipsam iste.
-                Sed, recusandae. Magni, animi obcaecati. Eius repudiandae sequi porro eligendi mollitia fuga temporibus iste, praesentium distinctio rerum molestias voluptates placeat iusto, nostrum vero cum unde eveniet optio commodi accusantium harum!
-                Esse quos amet nam iure odio placeat autem. Enim harum, quis quaerat tempora ipsam facere mollitia ipsum dolore fugiat nostrum voluptas dignissimos! Beatae harum vitae corrupti necessitatibus, accusamus fugit praesentium!
-                Labore praesentium reprehenderit nulla aut veniam minus, culpa placeat fugiat blanditiis sed officiis dolorem provident soluta laudantium et optio expedita atque harum debitis. Vero maiores molestias amet corrupti exercitationem ex?
-                Eum vel nisi dolorem voluptatem ducimus eaque consectetur, magnam molestiae aut, doloremque sequi ipsum. Magnam corporis sed ut reiciendis, beatae consectetur qui molestiae iste ipsum voluptatem quia amet architecto. Earum!
-                Placeat veniam iure porro dolor nemo ipsam natus pariatur error eaque, optio provident tenetur voluptates nisi illo quis necessitatibus? Eius debitis, quasi vel reiciendis magni iste facilis saepe quae alias!
-                Natus, enim vero eum totam ipsa amet cumque quasi consequuntur unde at magni quam. Expedita provident quidem fuga rerum sunt, amet fugit asperiores, quas unde non laborum sapiente perspiciatis impedit?
-                Veritatis magnam cumque laboriosam explicabo deleniti. Earum, cumque ut omnis quibusdam enim voluptates beatae neque perspiciatis aliquid iure vero commodi est voluptatibus esse numquam quam qui nihil quia officiis natus?
-                Quidem, dolor quaerat? Quisquam optio at fuga non dolor libero sequi sed cupiditate officia, aliquid doloribus cumque dignissimos ad dicta, architecto fugit. Quibusdam nostrum placeat, quia perferendis neque ad veritatis!
-                Est cumque accusantium voluptates pariatur eius quod impedit porro fuga. Eos, numquam alias tempore repellendus, quidem dolorem velit, officia assumenda quod ea at delectus eius nam laudantium molestias rem illum.
-                Quas fuga sapiente quaerat labore sunt quos atque ut consequatur, architecto voluptatem, maxime at suscipit animi sequi ullam culpa enim, perspiciatis consectetur porro excepturi laborum inventore aperiam. Ipsa, consequatur ratione?
-                Illum reprehenderit dicta possimus ut corrupti, officiis eveniet in temporibus omnis voluptatem qui obcaecati, debitis veritatis voluptatum velit, aspernatur consequuntur? Cupiditate ea eveniet tempora architecto fuga exercitationem expedita voluptatibus nihil?
-                Alias ut nulla maxime delectus non, saepe distinctio ad at beatae velit, repellendus omnis vero illum? Enim beatae vel sit voluptatum temporibus ducimus provident dignissimos, facere molestiae obcaecati, mollitia iusto.
-                Nobis aut ipsa error excepturi molestias aspernatur iure ab praesentium possimus vero atque, porro tempora distinctio voluptatem aliquid officiis inventore cupiditate neque at facilis nesciunt esse. Cum at et assumenda.
-                Ratione quos placeat aliquam harum rem repudiandae nam fugit inventore accusantium architecto libero asperiores adipisci odit tenetur quod exercitationem ab corporis, nemo eveniet excepturi, quibusdam optio in. Minima, dolor? Maxime?
-                Ex voluptatum, neque beatae atque veritatis saepe consequatur sint voluptate harum recusandae, corrupti quo. Similique repellat assumenda suscipit pariatur vel, tempora minima dolor, odio nulla cupiditate dicta laborum, unde inventore.
-                Aut magni quam numquam eaque pariatur expedita voluptatibus sit molestiae nemo, quis rerum hic provident consectetur ullam et itaque. Magni soluta ad, quod veniam placeat odio amet aliquid et ea?
-                Voluptas similique odit debitis velit ab cum beatae fuga ducimus veniam minus fugiat ratione soluta earum, accusantium labore voluptatem, sit ipsam consectetur illum. Incidunt, dignissimos ad molestiae eos cumque tempore.
-                Porro ducimus reprehenderit rem sunt numquam, natus vero similique quibusdam aliquid atque maiores iusto facere magnam maxime, voluptates culpa minima! Laudantium autem optio repellat nisi consectetur iste magni odio nulla?
-                Quam, blanditiis nesciunt accusantium repudiandae delectus sit expedita nam id, illum consequuntur reiciendis dolor illo quia earum iure nobis saepe? Hic, iusto doloremque officia ducimus tempora quos nulla exercitationem accusantium!
-                Reiciendis ut, totam accusantium velit corrupti beatae molestiae explicabo voluptas fugiat mollitia iure a repellat incidunt quaerat maxime non hic id aliquam corporis voluptatem. Officia unde quae quo voluptatem est!
-                Nemo debitis voluptate error, nobis quod nostrum iure facere sequi, recusandae sunt porro impedit libero eius harum velit adipisci illum commodi quas maxime. Fugiat dolores provident exercitationem eveniet illum expedita.
-                Vitae quas recusandae accusamus ullam porro dicta sint! Sunt, animi illo natus, inventore suscipit totam architecto mollitia quaerat vitae cum fuga rerum ex at quia facere, laboriosam molestiae numquam incidunt!
-                Iusto fugiat possimus magnam. Ut architecto laborum aspernatur incidunt consequatur accusantium earum deleniti, vero assumenda vel itaque beatae fuga velit pariatur magnam porro! Sed, pariatur? Debitis doloribus qui tenetur nam.
-                Ducimus quidem provident hic fugit corrupti, eos beatae harum sed, tenetur at commodi in maiores eveniet dolore iure nisi iste, illo a. Incidunt, esse sit! Omnis aliquam eum repellat ad?
-                Rerum facilis accusamus, ex eum incidunt, sed in quae cumque eius consequuntur molestias consequatur quasi commodi accusantium earum reiciendis! Cum, illum. Nisi cupiditate possimus tempora dolore impedit temporibus id corporis.
-                Dignissimos rem ut soluta unde commodi, corporis, aspernatur enim consequatur quas doloribus quibusdam qui eum quis eligendi neque ratione ducimus hic deserunt nostrum suscipit. Totam pariatur sequi tempora repellendus quos.
-                Soluta laudantium nihil corrupti eum! Eos non alias error corporis accusamus modi quas nemo officia iusto at. Accusantium ipsum minima ex deleniti excepturi, ducimus unde aperiam natus incidunt perferendis omnis.
-                Nostrum libero ipsum dolore aperiam, vel autem corporis placeat asperiores cum incidunt blanditiis, obcaecati sequi? Pariatur qui optio exercitationem? Facilis, unde cum. Itaque mollitia facere voluptates laboriosam exercitationem cupiditate nam!
-                Repellendus, illum porro! Voluptatum voluptatem fugit ut molestias labore possimus dolor ea, nostrum ullam veniam repellat, modi praesentium corrupti quo reiciendis ducimus error ab, tenetur qui? Incidunt ratione quo magni.
-                Eum saepe exercitationem numquam, sint culpa commodi alias vero quaerat inventore reiciendis iusto, magni tenetur porro fugiat repellat quam sequi impedit quidem error id. Repudiandae nostrum voluptatum dolorem corrupti eveniet?
-                Minima minus dolore quae voluptate eligendi ipsa deleniti, suscipit at explicabo maiores, et, facere ad distinctio eum numquam voluptates quisquam aperiam repudiandae neque doloribus corrupti. Molestiae porro maiores minus totam!
-                Fugiat saepe accusantium perferendis libero soluta est non unde in maxime, dolor vel corporis placeat tenetur facere corrupti natus omnis a consequatur distinctio, autem quibusdam nisi repudiandae sed magnam! Enim.
-                Harum incidunt quae molestiae minus nobis itaque sunt cupiditate, dolores unde quos iure dolorum nihil, ullam explicabo labore at voluptate quibusdam laborum. Harum rerum nam natus? Veniam iusto ducimus in!
-                Aliquam nulla nemo cum esse fugiat vero aliquid, incidunt nobis excepturi? Praesentium obcaecati mollitia commodi tenetur nostrum explicabo aliquam ea reiciendis pariatur! Corrupti illum dolor recusandae at ut illo aspernatur.
-                Quo sequi omnis harum accusamus cumque deserunt exercitationem. Incidunt, quisquam nulla magnam ea labore ab quo iusto maxime, facere ullam sequi non architecto adipisci veniam inventore, omnis voluptatem exercitationem eligendi.
-                Fuga excepturi nesciunt molestiae. Dolorem, aliquid nam! Praesentium, corporis error. Earum et repellendus dolorum sed tempora, veritatis a vero eum, illum, sapiente cum dolor molestias deleniti. Minus alias omnis fugit.
-                Quos eligendi fugit voluptates dicta sequi fuga nesciunt aut nisi labore laboriosam illum laudantium, et itaque qui. Excepturi magnam ab non minima praesentium molestias dolor illum, voluptates exercitationem, iusto modi!
-                A, accusantium? Autem quae facilis magni dolore perferendis doloremque harum tenetur fugiat quidem ad optio, fugit cumque inventore saepe asperiores totam veniam molestiae consequuntur pariatur natus voluptas assumenda incidunt quo!
-                Nesciunt ratione, perferendis magni rem incidunt minus vel corporis eos enim sunt odit delectus molestias sapiente vitae temporibus praesentium illo nihil autem maiores adipisci voluptas saepe beatae vero asperiores? Fugiat!
-                Perspiciatis doloribus fugiat sit sequi dolores nesciunt soluta quas ut voluptates, eum modi neque! Quis ad aliquam veniam tenetur cupiditate quam consequatur provident odit aut. Dolore necessitatibus consequatur facere deleniti?
-                Quam minima ex, rem veritatis tempora velit voluptate aliquam excepturi hic voluptatum repellendus deleniti. Provident blanditiis hic aliquid nobis voluptatibus, mollitia voluptates asperiores cumque iusto ut error quis voluptatem laudantium!
-                Facilis laboriosam necessitatibus magnam aperiam fuga reprehenderit accusamus magni vel harum? Voluptatem excepturi consectetur molestias corporis consequuntur temporibus, provident perferendis aperiam, blanditiis sapiente ipsum illum accusantium quas sint saepe omnis!
-                Odit saepe officia porro excepturi! Fugiat debitis voluptatum enim dignissimos nostrum dolorem voluptates ullam odit error quam est ipsum optio recusandae nesciunt dolores ipsam, vero, vel facere, molestiae sequi nemo?
-                In aut quod alias eaque nisi nesciunt ad placeat magnam id velit aliquid, quidem a nemo eius ea repellendus eligendi architecto aliquam fugiat. Ducimus esse quod officiis laborum hic praesentium.
-                Iusto eligendi, dignissimos voluptates sit repudiandae similique voluptatem modi soluta praesentium, magnam corrupti quae maxime deserunt. Enim tenetur animi, ratione quibusdam aut ducimus error expedita repudiandae sit est minus quos?
-                Repellat velit fuga neque rerum tenetur recusandae iure repellendus quasi amet dolor, quae nostrum voluptates eius placeat atque expedita iste pariatur sequi quaerat nesciunt! Dolorem nostrum assumenda commodi doloribus fuga.
-                Modi error eligendi harum aut deleniti veniam molestias et ab dolore, quam maiores nemo veritatis architecto officiis ex labore eos, tempore aperiam explicabo, nulla adipisci porro rem! Inventore, facere eos?
-                Natus, saepe voluptates. Suscipit optio architecto qui aliquid vel et similique illum dolore dolorum officiis odit ullam repellat nostrum culpa aspernatur eveniet laboriosam, corporis, tempore corrupti quaerat quisquam quibusdam consequatur!W
-            </p>
-        </div>
+        <section>
+            <div className="py-6 px-6 lg:py-16 lg:h-[64rem]  mt-6 lg:mt-16">
+                <div className="flex flex-col mx-auto space-y-6 md:flex-row-reverse items-center mb-6 lg:mb-16">
+                    <div className="flex flex-col md:items-center w-full lg:flex-row lg:w-1/2">
+                        <div className="max-w-lg md:mx-12 lg:order-2 mr-5">
+                            <h1 className="text-3xl font-semibold tracking-wide lg:text-4xl">About Us</h1>
+                            <p className="my-6 md:my-4 text-muted-foreground text-sm md:text-base">RideXpress is a next-generation ride booking platform dedicated to making urban transportation seamless, safe, and efficient. Since our inception, we have aimed to connect riders and drivers through a reliable, technology-driven service that prioritizes convenience. With a presence in multiple cities, our platform has become a trusted partner for commuters seeking fast, affordable, and reliable rides.</p>
+
+                        </div>
+                    </div>
+
+                    <div className="hidden md:flex items-center justify-center w-full h-96 lg:w-1/2">
+                        <img className="object-cover w-full h-full max-w-2xl rounded-md" src="https://images.unsplash.com/photo-1543269664-7eef42226a21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="apple watch photo" />
+                    </div>
+                </div>
+                <div className="flex flex-col mx-auto space-y-6 md:flex-row items-center">
+                    <div className="flex flex-col md:items-center w-full lg:flex-row lg:w-1/2">
+                        <div className="max-w-lg lg:mx-12 lg:order-2 mr-5">
+                            <h1 className="text-3xl font-semibold tracking-wide mb-6">Our mission is to revolutionize urban mobility by</h1>
+                          <ul className="space-x-3 mt-2">
+                              <li className="flex items-start gap-3 text-muted-foreground text-sm md:text-base">
+                                <span><Check className="size-4 mt-1" /></span>
+                                <span>Providing safe, timely, and accessible rides for everyone.</span>
+                            </li>
+                            <li className="flex items-start gap-3 text-muted-foreground mt-2 text-sm md:text-base">
+                                <span><Check className="size-4 mt-1" /></span>
+                                <span>Empowering drivers with tools to maximize earnings and manage rides effectively.</span>
+                            </li>
+                            <li className="flex items-start gap-3 text-muted-foreground mt-2 text-sm md:text-base">
+                                <span><Check className="size-4 mt-1" /></span>
+                                <span>Leveraging technology and data to optimize transportation and enhance user satisfaction.</span>
+                            </li>
+                            <li className="flex items-start gap-3 text-muted-foreground mt-2 text-sm md:text-base">
+                                <span><Check className="size-4 mt-1" /></span>
+                                <span>Promoting sustainable and responsible urban travel solutions.</span>
+                            </li>
+                          </ul>
+                        </div>
+                    </div>
+
+                    <div className="hidden md:flex items-center justify-center w-full h-96 lg:w-1/2">
+                        <img className="object-cover w-full h-full max-w-2xl rounded-md" src="https://images.unsplash.com/photo-1543269664-7eef42226a21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="apple watch photo" />
+                    </div>
+                </div>
+            </div>
+
+            <div className="py-6 px-6 lg:py-16">
+                <h1 className="text-2xl font-semibold lg:text-3xl">Meet Our Team</h1>
+
+                <div className="mt-2">
+                    <span className="inline-block w-40 h-1 bg-primary rounded-full"></span>
+                    <span className="inline-block w-3 h-1 ml-1 bg-primary rounded-full"></span>
+                    <span className="inline-block w-1 h-1 ml-1 bg-primary rounded-full"></span>
+                </div>
+                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                {teamMembers.map((member) => (
+                    <a href="#" className="group relative block bg-primary">
+                        <img
+                            alt="membars-image"
+                            src={member.image}
+                            className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+                        />
+
+                        <div className="relative p-4 sm:p-6 lg:p-8">
+                            <p className="text-sm font-medium tracking-widest text-pink-500 uppercase">{member.role}</p>
+
+                            <p className="text-xl font-bold text-muted sm:text-2xl">{member.name}</p>
+
+                            <div className="mt-32 sm:mt-48 lg:mt-64">
+                                <div
+                                    className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
+                                >
+                                    <p className="text-sm text-muted">
+                                        {member.bio}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                ))}
+            </div>
+            </div>
+        </section>
     );
 };
 

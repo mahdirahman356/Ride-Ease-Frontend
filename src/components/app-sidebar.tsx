@@ -13,7 +13,6 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { Link } from "react-router"
-import Logo from "@/assets/icons/Logo"
 import getSidebarItems from "@/utils/getSidebarItems"
 import { useUserInfoQuery } from "@/redux/features/auth/auth.api"
 
@@ -30,7 +29,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader className="mt-3.5">
         <Link to="/">
-          <Logo />
+          <h3 className="text-xl md:text-2xl font-semibold">Ride Ease.</h3>
         </Link>
       </SidebarHeader>
       <SidebarContent>

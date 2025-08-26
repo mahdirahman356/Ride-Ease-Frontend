@@ -19,7 +19,7 @@ import { Link } from "react-router"
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-  { href: "/", label: "Home", active: true, role: "PUBLIC" },
+  { href: "/", label: "Home", role: "PUBLIC" },
   { href: "/about", label: "About", role: "PUBLIC" },
   { href: "/features", label: "Features", role: "PUBLIC" },
   { href: "/contact", label: "Contact", role: "PUBLIC" },
@@ -55,7 +55,7 @@ export default function Navbar() {
 
   return (
     <header className="w-full fixed bg-muted z-20">
-      <div className="max-w-7xl px-4 mx-auto flex h-16 justify-between gap-4">
+      <div className="max-w-7xl px-6 mx-auto flex h-16 justify-between gap-4">
         {/* Left side */}
         <div className="flex gap-2">
           <div className="flex items-center md:hidden">
@@ -71,13 +71,13 @@ export default function Navbar() {
                   <div>
                     {link.role === "PUBLIC" &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild active={link.active} className="py-2">
+                        <NavigationMenuLink asChild className="py-2">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>)}
                     {link.role === data?.data?.role &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild active={link.active} className="py-2">
+                        <NavigationMenuLink asChild className="py-2">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>)}  
@@ -98,13 +98,13 @@ export default function Navbar() {
                   <div>
                     {link.role === "PUBLIC" &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild active={link.active} className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                        <NavigationMenuLink asChild className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>)}
                     {link.role === data?.data?.role &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild active={link.active} className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                        <NavigationMenuLink asChild className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>)}  
@@ -124,7 +124,7 @@ export default function Navbar() {
           >
             {data?.data?.isOnline ? "Online" : "Offline"}
           </Button>}
-          {data?.data?.email && <Button onClick={handleLogout} variant="outline" size="sm" className="text-sm">
+          {data?.data?.email && <Button onClick={handleLogout} size="sm">
             Logout
           </Button>}
 

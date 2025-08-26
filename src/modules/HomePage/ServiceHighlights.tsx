@@ -1,46 +1,46 @@
-import { Check, Waypoints } from "lucide-react";
+import { Check } from "lucide-react";
 
 const ServiceHighlights = () => {
     return (
         <section className="px-6 py-6 lg:py-16">
-            <div className="container flex flex-col lg:flex-row lg:items-center">
+            <div className="container flex flex-col lg:flex-row-reverse lg:gap-8 lg:items-center">
                 <div className="w-full lg:w-1/2 mb-12">
                     <div className="lg:max-w-lg">
                         <h1 className="text-3xl font-semibold lg:text-4xl mb-12">One Platform, Three Powerful Experiences</h1>
                         <div className="flex flex-wrap gap-6">
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center gap-1.5 mb-3">
-                                    <Waypoints />
                                     For Riders
                                 </h3>
-                                <div className="flex gap-3 items-center mb-3">
-                                    <Check size={17} className="text-muted-foreground" />
-                                    <span className="text-sm">Easy Ride Booking</span>
-                                </div>
+                                <ul>
+                                    <li className="flex gap-3 items-center mb-3">
+                                        <span><Check size={17} className="text-muted-foreground" /></span>
+                                        <span className="text-sm">Easy Ride Booking</span>
+                                    </li>
 
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Check size={17} className="text-muted-foreground" />
-                                    <span>Live Tracking</span>
-                                </div>
+                                    <li className="flex items-center gap-3 mb-3">
+                                        <span><Check size={17} className="text-muted-foreground" /></span>
+                                        <span>Live Tracking</span>
+                                    </li>
 
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Check size={17} className="text-muted-foreground" />
-                                    <span>Flexible Payments</span>
-                                </div>
+                                    <li className="flex items-center gap-3 mb-3">
+                                        <span><Check size={17} className="text-muted-foreground" /></span>
+                                        <span>Flexible Payments</span>
+                                    </li>
 
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Check size={17} className="text-muted-foreground" />
-                                    <span>Ride History</span>
-                                </div>
-                                <div className="flex items-center gap-3 mb-3">
-                                    <Check size={17} className="text-muted-foreground" />
-                                    <span>Profile Management</span>
-                                </div>
+                                    <li className="flex items-center gap-3 mb-3">
+                                        <span><Check size={17} className="text-muted-foreground" /></span>
+                                        <span>Ride History</span>
+                                    </li>
+                                    <li className="flex items-center gap-3 mb-3">
+                                        <span><Check size={17} className="text-muted-foreground" /></span>
+                                        <span>Profile Management</span>
+                                    </li>
+                                </ul>
                             </div>
 
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center gap-1.5 mb-2">
-                                    <Waypoints />
                                     For Drivers
                                 </h3>
                                 <div className="flex items-center gap-3 mb-3">
