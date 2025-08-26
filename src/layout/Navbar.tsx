@@ -1,4 +1,3 @@
-import Logo from "@/assets/icons/Logo"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -13,7 +12,9 @@ import {
 } from "@/components/ui/popover"
 import { role } from "@/constents/role"
 import { authApi, useLogoutMutation, useUserInfoQuery } from "@/redux/features/auth/auth.api"
+import { useUpdateAvailabilityMutation } from "@/redux/features/driver/driver.api"
 import { useAppDispatch } from "@/redux/hooks"
+import { AlignJustify } from "lucide-react"
 import { Link } from "react-router"
 
 // Navigation links array to be used in both desktop and mobile menus
@@ -29,9 +30,9 @@ const navigationLinks = [
 ]
 
 export default function Navbar() {
-
   const { data } = useUserInfoQuery(undefined)
   const [logout] = useLogoutMutation()
+  const [updateAvailability] = useUpdateAvailabilityMutation()
   const dispatch = useAppDispatch()
   console.log(data)
 
@@ -40,8 +41,20 @@ export default function Navbar() {
     dispatch(authApi.util.resetApiState())
   }
 
+  const handleAvailability = async () => {
+    const newStatus = data?.data?.isOnline === true ? false : true
+
+    try {
+      const res = await updateAvailability({ isOnline: newStatus }).unwrap()
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
   return (
-    <header className="border-b w-full bg-primary-foreground fixed">
+    <header className="w-full fixed bg-muted z-20">
       <div className="max-w-7xl px-4 mx-auto flex h-16 justify-between gap-4">
         {/* Left side */}
         <div className="flex gap-2">
@@ -49,48 +62,27 @@ export default function Navbar() {
             {/* Mobile menu trigger */}
             <Popover>
               <PopoverTrigger asChild>
-                <Button className="group size-8" variant="ghost" size="icon">
-                  <svg
-                    className="pointer-events-none"
-                    width={16}
-                    height={16}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 12L20 12"
-                      className="origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
-                    />
-                    <path
-                      d="M4 12H20"
-                      className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
-                    />
-                    <path
-                      d="M4 12H20"
-                      className="origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
-                    />
-                  </svg>
-                </Button>
+                <AlignJustify />
               </PopoverTrigger>
               <PopoverContent align="start" className="w-36 p-1 md:hidden">
                 <NavigationMenu className="max-w-none *:w-full">
                   <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                     {navigationLinks.map((link, index) => (
-                      <NavigationMenuItem key={index} className="w-full">
-                        <NavigationMenuLink
-                          href={link.href}
-                          className="py-1.5"
-                          active={link.active}
-                        >
-                          {link.label}
+                  <div>
+                    {link.role === "PUBLIC" &&
+                      (<NavigationMenuItem key={index} className="h-full">
+                        <NavigationMenuLink asChild active={link.active} className="py-2">
+                          <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    ))}
+                      </NavigationMenuItem>)}
+                    {link.role === data?.data?.role &&
+                      (<NavigationMenuItem key={index} className="h-full">
+                        <NavigationMenuLink asChild active={link.active} className="py-2">
+                          <Link to={link.href}>{link.label}</Link>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>)}  
+                  </div>
+                ))}
                   </NavigationMenuList>
                 </NavigationMenu>
               </PopoverContent>
@@ -98,9 +90,7 @@ export default function Navbar() {
           </div>
           {/* Main nav */}
           <div className="flex items-center gap-6">
-            <a href="#" className="text-primary hover:text-primary/90">
-              <Logo />
-            </a>
+             <h3 className="text-xl md:text-2xl font-semibold">Ride Ease.</h3>
             {/* Navigation menu */}
             <NavigationMenu className="h-full *:h-full max-md:hidden">
               <NavigationMenuList className="h-full gap-2">
@@ -108,16 +98,16 @@ export default function Navbar() {
                   <div>
                     {link.role === "PUBLIC" &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild active={link.active} className="text-muted-foreground hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                        <NavigationMenuLink asChild active={link.active} className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>)}
-                      {link.role === data?.data?.role &&
+                    {link.role === data?.data?.role &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild active={link.active} className="text-muted-foreground hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                        <NavigationMenuLink asChild active={link.active} className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
-                      </NavigationMenuItem>)}
+                      </NavigationMenuItem>)}  
                   </div>
                 ))}
               </NavigationMenuList>
@@ -126,11 +116,20 @@ export default function Navbar() {
         </div>
         {/* Right side */}
         <div className="flex items-center gap-2">
+          {data?.data?.role === role.driver && <Button
+            onClick={handleAvailability}
+            variant="outline" size="sm"
+            className={`
+        ${data?.data?.isOnline && "bg-green-500 text-muted"}`}
+          >
+            {data?.data?.isOnline ? "Online" : "Offline"}
+          </Button>}
           {data?.data?.email && <Button onClick={handleLogout} variant="outline" size="sm" className="text-sm">
             Logout
           </Button>}
-          {!data?.data?.email && <Button asChild size="sm" className="text-sm">
-            <Link to={"/login"}>Login</Link>
+
+          {!data?.data?.email && <Button size={"sm"} asChild>
+            <Link to={"/register"}>Sign up</Link>
           </Button>}
         </div>
       </div>

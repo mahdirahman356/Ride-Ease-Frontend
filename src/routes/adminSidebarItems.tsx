@@ -1,6 +1,6 @@
 import AdminChangePassword from "@/pages/Admin/AdminChangePassword";
 import AdminManageProfile from "@/pages/Admin/AdminManageProfile";
-import Analytics from "@/pages/Admin/Analytics";
+import { Analytics } from "@/pages/Admin/Analytics";
 import ManageUsers from "@/pages/Admin/ManageUsers";
 import RideOversight from "@/pages/Admin/RideOversight";
 import type { ISidebarItem } from "@/types";

@@ -34,7 +34,6 @@ export interface IUser {
 }
 
 
-
 export type RideStatus = "REQUESTED" | "ACCEPTED" | "REJECTED" | "PICKED_UP" | "IN_TRANSIT" | "COMPLETED" | "CANCELLED";
 
 export interface IStatusHistory {
@@ -48,6 +47,7 @@ export interface IStatusHistory {
 
 }
 export interface driverAndRider {
+    address: string;
     name: string,
     phone: number,
     role: string
@@ -68,8 +68,34 @@ export interface IRide {
 export interface ISidebarItem {
     title: string;
     items: {
-      title: string;
-      url: string;
-      component: ComponentType;
+        title: string;
+        url: string;
+        component: ComponentType;
     }[];
-  }
+}
+
+export interface StatusHistory {
+    requestedAt?: string;
+    acceptedAt?: string;
+    pickedUpAt?: string;
+    inTransitAt?: string;
+    completedAt?: string;
+};
+
+export interface ITimeline {
+    id: number,
+    date: string,
+    title: string,
+    description: string
+}
+
+export interface IDriverActivity {
+    _id: string
+    address: string;
+    driverId: string,
+    email: string,
+    isActive: string
+    name: string
+    totalRevenue: number
+    totalRides: number
+}

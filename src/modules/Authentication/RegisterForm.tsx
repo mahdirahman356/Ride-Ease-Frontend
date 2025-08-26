@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Logo from "@/assets/icons/Logo";
 import Password from "@/components/ui/Password";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -17,6 +16,7 @@ import {
 } from "@/components/ui/select"
 import { useRegisterMutation } from "@/redux/features/auth/auth.api";
 import { toast } from "sonner";
+import { FcGoogle } from "react-icons/fc";
 
 const registerSchema = z.object({
     name: z
@@ -76,11 +76,7 @@ const RegisterForm = () => {
         <div>
             <div className="flex flex-col gap-6">
                 <div className="flex flex-col items-center gap-2 text-center">
-                    <Logo />
-                    <h1 className="text-2xl font-bold">Register your account</h1>
-                    <p className="text-muted-foreground text-sm text-balance">
-                        Enter your details to create an account
-                    </p>
+                    <h1 className="text-2xl font-semibold">Register your account</h1>
                 </div>
                 <div className="grid gap-6">
                     <Form {...form}>
@@ -156,8 +152,9 @@ const RegisterForm = () => {
                     <Button
                         type="button"
                         variant="outline"
-                        className="w-full cursor-pointer"
+                        className="w-full cursor-pointer bg-muted"
                     >
+                        <FcGoogle className="text-2xl mr-3" />
                         Login with Google
                     </Button>
                 </div>

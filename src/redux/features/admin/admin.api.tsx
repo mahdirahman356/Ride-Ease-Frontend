@@ -36,6 +36,14 @@ export const adminApi = baseApi.injectEndpoints({
             }),
             providesTags: ["USER"],
         }),
+        adminAnalytics: builder.query({
+            query: (params) => ({
+                url: "/user/admin-analytics",
+                method: "GET",
+                params
+            }),
+            providesTags: ["USER"],
+        }),
     })
 })
 
@@ -43,5 +51,6 @@ export const {
     useUpdateActivityStatusMutation,
     useUpdateDriverApprovalMutation,
     useGetAllUsersQuery,
-    useGetAllRidesQuery
+    useGetAllRidesQuery,
+    useAdminAnalyticsQuery
 } = adminApi

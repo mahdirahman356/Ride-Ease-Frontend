@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Logo from "@/assets/icons/Logo";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -10,6 +9,7 @@ import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import z from "zod";
+import { FcGoogle } from "react-icons/fc";
 
 const loginSchema = z.object({
   email: z
@@ -56,11 +56,7 @@ const LoginForm = () => {
     <div>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col items-center gap-2 text-center">
-          <Logo />
-          <h1 className="text-2xl font-bold">Login to your account</h1>
-          <p className="text-balance text-sm text-muted-foreground">
-            Enter your email below to login to your account
-          </p>
+          <h1 className="text-2xl font-semibold">Login to your account</h1>
         </div>
         <div className="grid gap-6">
           <Form {...form}>
@@ -113,8 +109,9 @@ const LoginForm = () => {
           <Button
             type="button"
             variant="outline"
-            className="w-full cursor-pointer"
+            className="w-full cursor-pointer bg-muted"
           >
+            <FcGoogle className="text-2xl mr-3"/>
             Login with Google
           </Button>
         </div>
