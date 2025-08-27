@@ -7,18 +7,13 @@ import type { ISidebarItem } from "@/types";
 
 export const riderSidebarItems: ISidebarItem[] = [
     {
-        title: "Requests",
+        title: "Ride Request",
         items: [
             {
                 title: "Request Ride",
                 url: "/rider/request-ride",
                 component: RequestRide,
             },
-        ],
-    },
-    {
-        title: "Requests",
-        items: [
             {
                 title: "Ride History",
                 url: "/rider/ride-history",
@@ -34,16 +29,11 @@ export const riderSidebarItems: ISidebarItem[] = [
                 url: "/rider/manage-profile",
                 component: RiderManageProfile,
             },
+            {
+                title: "Change Password",
+                url: "/rider/change-password",
+                component: RiderChangePassword,
+            },
         ],
     },
-     {
-            title: "Change Password",
-            items: [
-                {
-                    title: "Change Password",
-                    url: "/rider/change-password",
-                    component: RiderChangePassword,
-                },
-            ],
-        },
 ]

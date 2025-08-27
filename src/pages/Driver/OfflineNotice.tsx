@@ -27,15 +27,15 @@ const OfflineNotice = () => {
         {/* What to do next */}
         <div className="mt-6 space-y-2">
           <h4 className="text-lg font-semibold flex items-center gap-2">
-            <Pin />
+            <span><Pin /></span>
             Next Steps
           </h4>
           <div className="flex items-start gap-2 text-sm text-muted-foreground">
-            <ArrowRight className="size-4 mt-1" />
+            <span><ArrowRight className="size-4 mt-1" /></span>
             <p>Go online to start receiving ride requests immediately.</p>
           </div>
           <div className="flex items-start gap-2 text-sm text-muted-foreground">
-            <ArrowRight className="size-4 mt-1" />
+           <span> <ArrowRight className="size-4 mt-1" /></span>
             <p>You can toggle your online/offline status anytime from your dashboard.</p>
           </div>
         </div>

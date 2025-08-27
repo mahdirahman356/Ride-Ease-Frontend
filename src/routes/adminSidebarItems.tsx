@@ -28,7 +28,7 @@ export const adminSidebarItems: ISidebarItem[] = [
         ],
     },
      {
-        title: "Ride Oversight",
+        title: "Ride Management",
         items: [
             {
                 title: "Ride Oversight",
@@ -45,12 +45,7 @@ export const adminSidebarItems: ISidebarItem[] = [
                 url: "/admin/manage-profile",
                 component: AdminManageProfile,
             },
-        ],
-    },
-     {
-        title: "Change Password",
-        items: [
-            {
+             {
                 title: "Change Password",
                 url: "/admin/change-password",
                 component: AdminChangePassword,

@@ -7,14 +7,13 @@ import {
 import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 
 function Calendar({
   className,
   classNames,
   showOutsideDays = true,
   captionLayout = "label",
-  buttonVariant = "ghost",
   formatters,
   components,
   ...props
@@ -50,12 +49,20 @@ function Calendar({
           defaultClassNames.nav
         ),
         button_previous: cn(
-          buttonVariants({ variant: buttonVariant }),
+          "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors " +
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 " +
+          "disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground " +
+          "h-9 w-9",
+
           "size-(--cell-size) aria-disabled:opacity-50 p-0 select-none",
           defaultClassNames.button_previous
         ),
         button_next: cn(
-          buttonVariants({ variant: buttonVariant }),
+          "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors " +
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 " +
+          "disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground " +
+          "h-9 w-9",
+
           "size-(--cell-size) aria-disabled:opacity-50 p-0 select-none",
           defaultClassNames.button_next
         ),
@@ -184,10 +191,9 @@ function CalendarDayButton({
   }, [modifiers.focused])
 
   return (
-    <Button
+    <button
       ref={ref}
-      variant="ghost"
-      size="icon"
+      type="button"
       data-day={day.date.toLocaleDateString()}
       data-selected-single={
         modifiers.selected &&
@@ -199,7 +205,24 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[range-middle=true]:bg-accent data-[range-middle=true]:text-accent-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md [&>span]:text-xs [&>span]:opacity-70",
+        "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors " +
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring " +
+        "focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none " +
+        "hover:bg-accent hover:text-accent-foreground h-9 w-9",
+
+        "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground " +
+        "data-[range-middle=true]:bg-accent data-[range-middle=true]:text-accent-foreground " +
+        "data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground " +
+        "data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground " +
+        "group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 " +
+        "dark:hover:text-accent-foreground flex aspect-square size-auto w-full " +
+        "min-w-(--cell-size) flex-col gap-1 leading-none font-normal " +
+        "group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 " +
+        "group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md " +
+        "data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none " +
+        "data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md " +
+        "[&>span]:text-xs [&>span]:opacity-70",
+
         defaultClassNames.day,
         className
       )}

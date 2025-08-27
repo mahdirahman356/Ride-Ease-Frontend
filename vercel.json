@@ -1,0 +1,13 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "env": {},
+  "installCommand": "bun install",
+  "buildCommand": "bun build src/main.jsx --outdir dist",
+  "outputDirectory": "dist"
+}

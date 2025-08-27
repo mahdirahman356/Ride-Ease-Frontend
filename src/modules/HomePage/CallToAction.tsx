@@ -1,3 +1,4 @@
+import specialOfferImage from "../../assets/image/special-offer.png"
 
 const CallToAction = () => {
     return (
@@ -12,7 +13,7 @@ const CallToAction = () => {
                 </div>
 
                 <div className="mt-8 xl:mt-12 lg:flex lg:items-center">
-                    <div className="grid w-full grid-cols-1 gap-8 lg:w-1/2 xl:gap-16 sm:grid-cols-2">
+                    <div className="grid w-full grid-cols-1 gap-8 lg:w-1/2 xl:gap-16 sm:grid-cols-2 mr-8">
                         <div className="space-y-3">
                             <span className="inline-block p-3  rounded-xl bg-primary text-muted">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -68,8 +69,8 @@ const CallToAction = () => {
                         </div>
                     </div>
 
-                    <div className="hidden lg:flex lg:w-1/2 lg:justify-center">
-                        <img className="w-[28rem] h-[28rem] flex-shrink-0 object-cover xl:w-[34rem] xl:h-[34rem] rounded-full" src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" />
+                    <div className="hidden lg:flex items-center justify-center w-full h-96 lg:w-1/2">
+                        <img className="object-cover w-full h-full max-w-2xl rounded-md" src={specialOfferImage} alt="apple watch photo" />
                     </div>
                 </div>
             </div>

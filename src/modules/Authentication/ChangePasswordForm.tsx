@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Logo from "@/assets/icons/Logo";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -53,59 +52,51 @@ const ChangePasswordForm = () => {
     return (
         <div>
             <div className="flex justify-center items-center">
-                <div className="w-full max-w-sm p-4">
-                    <div>
-                        <div className="flex flex-col gap-6">
-                            <div className="flex flex-col items-center gap-2 text-center">
-                                <Logo />
-                                <h1 className="text-2xl font-bold">Change your profile</h1>
-                                <p className="text-balance text-sm text-muted-foreground">
-                                    Update your personal profile and change password.
-                                </p>
-                            </div>
-                            <div className="grid gap-6">
-                                <Form {...form}>
-                                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                                        <FormField
-                                            control={form.control}
-                                            name="oldPassword"
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormLabel>Old Password</FormLabel>
-                                                    <FormControl>
-                                                        <Input
-                                                            placeholder="Old Password"
-                                                            {...field}
-                                                        />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        />
+                <div className="w-full max-w-sm">
+                    <div className="flex flex-col gap-6">
+                        <h1 className="text-3xl font-bold">Change and update your account password</h1>
+                        <div className="grid gap-6 w-full">
+                            <Form {...form}>
+                                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                                    <FormField
+                                        control={form.control}
+                                        name="oldPassword"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Old Password</FormLabel>
+                                                <FormControl>
+                                                    <Input
+                                                        placeholder="Old Password"
+                                                        {...field}
+                                                    />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
 
-                                        <FormField
-                                            control={form.control}
-                                            name="newPassword"
-                                            render={({ field }) => (
-                                                <FormItem>
-                                                    <FormLabel>New Password</FormLabel>
-                                                    <FormControl>
-                                                        <Input
-                                                            placeholder="New Password"
-                                                            {...field}
-                                                        />
-                                                    </FormControl>
-                                                    <FormMessage />
-                                                </FormItem>
-                                            )}
-                                        />
+                                    <FormField
+                                        control={form.control}
+                                        name="newPassword"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>New Password</FormLabel>
+                                                <FormControl>
+                                                    <Input
+                                                        placeholder="New Password"
+                                                        {...field}
+                                                    />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
 
-                                        <Button type="submit" className="w-full">
-                                            Continue
-                                        </Button>
-                                    </form>
-                                </Form>
-                            </div>
+                                    <Button type="submit" className="w-full">
+                                        Continue
+                                    </Button>
+                                </form>
+                            </Form>
                         </div>
                     </div>
                 </div>

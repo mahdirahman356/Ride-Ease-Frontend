@@ -90,7 +90,7 @@ export default function Navbar() {
           </div>
           {/* Main nav */}
           <div className="flex items-center gap-6">
-             <h3 className="text-xl md:text-2xl font-semibold">Ride Ease.</h3>
+             <h3 className="text-xl md:text-2xl font-semibold text-nowrap">Ride Ease.</h3>
             {/* Navigation menu */}
             <NavigationMenu className="h-full *:h-full max-md:hidden">
               <NavigationMenuList className="h-full gap-2">

@@ -8,39 +8,24 @@ import type { ISidebarItem } from "@/types";
 
 export const driverSidebarItems: ISidebarItem[] = [
     {
-        title: "Requests",
+        title: "Rides",
         items: [
             {
                 title: "Requests",
                 url: "/driver/requests",
                 component: Requests,
             },
-        ],
-    },
-    {
-        title: "Active Ride",
-        items: [
             {
                 title: "Active Ride",
                 url: "/driver/active-ride",
                 component: ActiveRide,
             },
-        ],
-    },
-    {
-        title: "Earnings",
-        items: [
             {
                 title: "Earnings",
                 url: "/driver/earnings",
                 component: Earnings,
             },
-        ],
-    },
-    {
-        title: "Ride History",
-        items: [
-            {
+             {
                 title: "Ride History",
                 url: "/driver/ride-history",
                 component: DriverRideHistory,
@@ -55,11 +40,6 @@ export const driverSidebarItems: ISidebarItem[] = [
                 url: "/driver/manage-Profile",
                 component: DriverManageProfile,
             },
-        ],
-    },
-    {
-        title: "Change Password",
-        items: [
             {
                 title: "Change Password",
                 url: "/driver/change-password",

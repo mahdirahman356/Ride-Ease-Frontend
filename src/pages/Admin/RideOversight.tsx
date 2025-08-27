@@ -25,8 +25,7 @@ import type { IRide, IUser } from "@/types";
 import { format } from "date-fns";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, LoaderCircleIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { rideStatus } from "@/constents/rideStatus";
 
@@ -39,9 +38,9 @@ const RideOversight = () => {
     }>({})
     const [open, setOpen] = useState(false)
 
-    const { data } = useGetAllRidesQuery(filters)
-    const { data: riders } = useGetAllUsersQuery({role: "RIDER" ,fields: "_id,name" })
-    const { data: drivers } = useGetAllUsersQuery({role: "DRIVER" ,fields: "_id,name" })
+    const { data, isLoading } = useGetAllRidesQuery(filters)
+    const { data: riders } = useGetAllUsersQuery({ role: "RIDER", fields: "_id,name" })
+    const { data: drivers } = useGetAllUsersQuery({ role: "DRIVER", fields: "_id,name" })
     console.log(riders?.data)
     console.log(filters)
 
@@ -52,10 +51,21 @@ const RideOversight = () => {
         setFilters((prev) => ({ ...prev, [key]: value }))
     }
 
-    return (
-        <div>
+     if (isLoading) {
+                return <div className="flex justify-center items-center my-20">
+                    <LoaderCircleIcon
+                        className="-ms-1 animate-spin"
+                        size={30}
+                        aria-hidden="true"
+                    />
+                </div>
+            }
 
-            <div className="flex items-end gap-2">
+    return (
+       <div>
+        {data?.data.length === 0 ?  <p className="text-center mt-20 text-muted-foreground">No ride yet</p>   
+        : <div className="p-4">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-5">
                 <div>
                     <Label className="mb-2">Find by status</Label>
                     <Select
@@ -67,7 +77,7 @@ const RideOversight = () => {
                             <SelectGroup>
                                 <SelectLabel>Find by status</SelectLabel>
                                 {allRideStatus.map((item) => (
-                                        <SelectItem key={item} value={item}>{item}</SelectItem>
+                                    <SelectItem key={item} value={item}>{item}</SelectItem>
                                 ))}
 
                             </SelectGroup>
@@ -85,7 +95,7 @@ const RideOversight = () => {
                             <SelectGroup>
                                 <SelectLabel>Find by Rider</SelectLabel>
                                 {riders?.data?.map((item: IUser) => (
-                                        <SelectItem key={item._id} value={item._id as string}>{item.name}</SelectItem>
+                                    <SelectItem key={item._id} value={item._id as string}>{item.name}</SelectItem>
                                 ))}
 
                             </SelectGroup>
@@ -103,7 +113,7 @@ const RideOversight = () => {
                             <SelectGroup>
                                 <SelectLabel>Find by driver</SelectLabel>
                                 {drivers?.data?.map((item: IUser) => (
-                                        <SelectItem key={item._id} value={item._id as string}>{item.name}</SelectItem>
+                                    <SelectItem key={item._id} value={item._id as string}>{item.name}</SelectItem>
                                 ))}
 
                             </SelectGroup>
@@ -113,18 +123,19 @@ const RideOversight = () => {
 
                 <div className="flex flex-col gap-3">
                     <Label htmlFor="date" className="px-1">
-                       find by date 
+                        find by date
                     </Label>
                     <Popover open={open} onOpenChange={setOpen}>
                         <PopoverTrigger asChild>
-                            <Button
-                                variant="outline"
+                            <div
                                 id="date"
-                                className="w-48 justify-between font-normal"
+                                className="w-48 cursor-pointer rounded-sm border text-muted-foreground px-3 py-2 flex items-center justify-between"
                             >
-                                {filters.createdAt ? format(filters.createdAt, "PPP") : "Pick a date"}
-                                <ChevronDownIcon />
-                            </Button>
+                                {filters.createdAt
+                                    ? format(filters.createdAt, "PPP")
+                                    : "Pick a date"}
+                                <ChevronDownIcon className="ml-2 h-4 w-4 opacity-50" />
+                            </div>
                         </PopoverTrigger>
                         <PopoverContent className="w-auto overflow-hidden p-0" align="start">
                             <Calendar
@@ -133,17 +144,17 @@ const RideOversight = () => {
                                 captionLayout="dropdown"
                                 onSelect={(date) => {
                                     if (date) {
-                                      handleFilterChange("createdAt", format(date, "yyyy-MM-dd"))
+                                        handleFilterChange("createdAt", format(date, "yyyy-MM-dd"))
                                     }
-                                  }}/>
+                                }} />
                         </PopoverContent>
                     </Popover>
                 </div>
             </div>
 
-            <Table>
+            <Table className="my-5">
                 <TableHeader>
-                    <TableRow className="hover:bg-transparent">
+                    <TableRow className="hover:bg-transparent text-nowrap">
                         <TableHead>Pickup Location</TableHead>
                         <TableHead>Destination Location</TableHead>
                         <TableHead>Rider</TableHead>
@@ -155,7 +166,7 @@ const RideOversight = () => {
                 </TableHeader>
                 <TableBody>
                     {data?.data?.map((item: IRide) => (
-                        <TableRow key={item._id}>
+                        <TableRow key={item._id} className="text-nowrap">
                             <TableCell>{item.pickupLocation}</TableCell>
                             <TableCell>{item.destinationLocation}</TableCell>
                             <TableCell>
@@ -190,7 +201,9 @@ const RideOversight = () => {
                     ))}
                 </TableBody>
             </Table>
-        </div>
+        </div>}
+         
+       </div>
     );
 };
 

@@ -32,8 +32,7 @@ import type { IRide } from "@/types";
 import { format } from "date-fns";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { ChevronDownIcon, Search } from "lucide-react";
+import { ChevronDownIcon, LoaderCircleIcon, Search } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { rideStatus } from "@/constents/rideStatus";
 import { useId } from "react"
@@ -48,7 +47,7 @@ const DriverRideHistory = () => {
         fareEstimation?: number,
     }>({})
     const [open, setOpen] = useState(false)
-    const { data } = useGetMyRidesHistoryQuery({ page: currentPage, limit: 10, ...filters })
+    const { data, isLoading } = useGetMyRidesHistoryQuery({ page: currentPage, limit: 10, ...filters })
     const totalPage = data?.data?.meta?.totalPage || 1;
 
 
@@ -63,9 +62,21 @@ const DriverRideHistory = () => {
         setFilters((prev) => ({ ...prev, [key]: value }))
     }
 
+    if (isLoading) {
+            return <div className="flex justify-center items-center my-20">
+                <LoaderCircleIcon
+                    className="-ms-1 animate-spin"
+                    size={30}
+                    aria-hidden="true"
+                />
+            </div>
+        }
+
     return (
-        <div>
-            <div className="flex items-end gap-2">
+       <div className="p-4">
+         {data?.data?.data.length === 0 ? <p className="text-center mt-20 text-muted-foreground">No ride history found</p> 
+         : <div>
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-5">
                 <div className="*:not-first:mt-2 w-48">
                     <Label htmlFor={id}>Search Rides</Label>
                     <div className="relative">
@@ -118,14 +129,15 @@ const DriverRideHistory = () => {
                     </Label>
                     <Popover open={open} onOpenChange={setOpen}>
                         <PopoverTrigger asChild>
-                            <Button
-                                variant="outline"
+                            <div
                                 id="date"
-                                className="w-48 justify-between font-normal"
+                                className="w-48 cursor-pointer rounded-sm border text-muted-foreground px-3 py-2 flex items-center justify-between"
                             >
-                                {filters.createdAt ? format(filters.createdAt, "PPP") : "Pick a date"}
-                                <ChevronDownIcon />
-                            </Button>
+                                {filters.createdAt
+                                    ? format(filters.createdAt, "PPP")
+                                    : "Pick a date"}
+                                <ChevronDownIcon className="ml-2 h-4 w-4 opacity-50" />
+                            </div>
                         </PopoverTrigger>
                         <PopoverContent className="w-auto overflow-hidden p-0" align="start">
                             <Calendar
@@ -141,9 +153,9 @@ const DriverRideHistory = () => {
                     </Popover>
                 </div>
             </div>
-            <Table>
+            <Table className="my-5">
                 <TableHeader>
-                    <TableRow className="hover:bg-transparent">
+                    <TableRow className="hover:bg-transparent text-nowrap">
                         <TableHead>Pickup Location</TableHead>
                         <TableHead>Destination Location</TableHead>
                         <TableHead>Rider</TableHead>
@@ -155,7 +167,7 @@ const DriverRideHistory = () => {
                 </TableHeader>
                 <TableBody>
                     {data?.data?.data?.map((item: IRide) => (
-                        <TableRow key={item._id}>
+                        <TableRow key={item._id} className="text-nowrap">
                             <TableCell>{item.pickupLocation}</TableCell>
                             <TableCell>{item.destinationLocation}</TableCell>
                             <TableCell> <div className="flex items-center gap-3">
@@ -207,7 +219,9 @@ const DriverRideHistory = () => {
                         </Pagination>
                     </div>
                 </div>}
-        </div>
+        </div> }
+         
+       </div>
     );
 };
 

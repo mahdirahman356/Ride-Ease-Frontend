@@ -1,12 +1,12 @@
 import { Check } from "lucide-react";
-
+import highlightsImage from "../../assets/image/highlights.avif"
 const ServiceHighlights = () => {
     return (
         <section className="px-6 py-6 lg:py-16">
             <div className="container flex flex-col lg:flex-row-reverse lg:gap-8 lg:items-center">
                 <div className="w-full lg:w-1/2 mb-12">
                     <div className="lg:max-w-lg">
-                        <h1 className="text-3xl font-semibold lg:text-4xl mb-12">One Platform, Three Powerful Experiences</h1>
+                        <h1 className="text-3xl font-semibold lg:text-4xl mb-12">One Platform, Two Powerful Experiences</h1>
                         <div className="flex flex-wrap gap-6">
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center gap-1.5 mb-3">
@@ -71,8 +71,8 @@ const ServiceHighlights = () => {
                     </div>
                 </div>
 
-                <div className="h-96 w-full lg:w-1/2">
-                    <img className="object-cover w-full h-full rounded-md" src="https://images.unsplash.com/photo-1555181126-cf46a03827c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="glasses photo" />
+                 <div className="lg:h-96 w-full lg:w-1/2">
+                    <img className="object-cover w-full h-full rounded-md" src={highlightsImage} alt="glasses photo" />
                 </div>
             </div>
         </section>

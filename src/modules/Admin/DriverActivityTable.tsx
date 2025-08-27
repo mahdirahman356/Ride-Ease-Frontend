@@ -7,7 +7,6 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Bike } from "lucide-react"
-import userImage from "../../assets/image/user-image.webp"
 import type { IDriverActivity } from "@/types"
 
 interface DriverActivityProps {
@@ -26,7 +25,7 @@ export default function DriverActivityTable({driverActivity}: DriverActivityProp
                 </div>
             </div>      <Table>
                 <TableHeader>
-                    <TableRow className="hover:bg-transparent">
+                    <TableRow className="hover:bg-transparent text-nowrap">
                         <TableHead>Driver</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Rides</TableHead>
@@ -36,23 +35,14 @@ export default function DriverActivityTable({driverActivity}: DriverActivityProp
                 </TableHeader>
                 <TableBody>
                     {driverActivity?.map((item) => (
-                        <TableRow key={item._id}>
+                        <TableRow key={item._id} className="text-nowrap">
                             <TableCell>
-                                <div className="flex items-center gap-3">
-                                    <img
-                                        className="rounded-full border"
-                                        src={userImage}
-                                        width={40}
-                                        height={40}
-                                        alt={"user-image"}
-                                    />
                                     <div>
                                         <div className="font-medium">{item.name}</div>
                                         <span className="text-muted-foreground mt-0.5 text-xs">
                                             {item?.address ? item?.address : "Address not provided"}
                                         </span>
                                     </div>
-                                </div>
                             </TableCell>
                             <TableCell>{item.email}</TableCell>
                             <TableCell>{item.totalRides}</TableCell>
