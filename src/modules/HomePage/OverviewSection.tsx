@@ -10,7 +10,7 @@ const OverviewSection = () => {
                             <div className="rounded-full p-2 bg-primary text-muted">
                                 <StepForward size={16} />
                             </div>
-                            <p className="text-xl font-semibold">Step 1</p>
+                            <p className="text-xl font-semibold">Step one</p>
                         </div>
                         <p className="pl-10 text-muted-foreground text-sm md:text-base">Enter your pickup and destination, choose your preferred vehicle, and confirm your booking in seconds.</p>
                     </div>
@@ -19,7 +19,7 @@ const OverviewSection = () => {
                             <div className="rounded-full p-2 bg-primary text-muted">
                                 <StepForward size={16} />
                             </div>
-                            <p className="text-xl font-semibold">Step 2</p>
+                            <p className="text-xl font-semibold">Step two</p>
                         </div>
                         <p className="pl-10 text-muted-foreground text-sm md:text-base">Nearby drivers get your request instantly. The best-matched driver accepts and heads towards your pickup location.</p>
                     </div>
@@ -28,7 +28,7 @@ const OverviewSection = () => {
                             <div className="rounded-full p-2 bg-primary text-muted">
                                 <StepForward size={16} />
                             </div>
-                            <p className="text-xl font-semibold">Step 3</p>
+                            <p className="text-xl font-semibold">Step three</p>
                         </div>
                         <p className="pl-10  text-muted-foreground text-sm md:text-base">Track your ride in real-time, pay securely, and reach your destination comfortably and safely.</p>
                     </div>
@@ -37,7 +37,7 @@ const OverviewSection = () => {
                             <div className="rounded-full p-2 bg-primary text-muted">
                                 <StepForward size={16} />
                             </div>
-                            <p className="text-xl font-semibold">Step 4</p>
+                            <p className="text-xl font-semibold">Step four</p>
                         </div>
                         <p className="pl-10  text-muted-foreground text-sm md:text-base">After the ride, share your feedback and rate your driver to keep the community safe and reliable.</p>
                     </div>

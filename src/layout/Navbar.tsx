@@ -54,7 +54,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="w-full fixed bg-muted z-20">
+    <header className="w-full fixed bg-primary z-20">
       <div className="max-w-7xl px-6 mx-auto flex h-16 justify-between gap-4">
         {/* Left side */}
         <div className="flex gap-2">
@@ -90,21 +90,21 @@ export default function Navbar() {
           </div>
           {/* Main nav */}
           <div className="flex items-center gap-6">
-             <h3 className="text-xl md:text-2xl font-semibold text-nowrap">Ride Ease.</h3>
+             <h3 className="text-xl md:text-2xl font-semibold text-nowrap text-muted">Ride Ease.</h3>
             {/* Navigation menu */}
-            <NavigationMenu className="h-full *:h-full max-md:hidden">
+            <NavigationMenu className="h-full *:h-full max-md:hidden text-muted">
               <NavigationMenuList className="h-full gap-2">
                 {navigationLinks.map((link, index) => (
                   <div>
                     {link.role === "PUBLIC" &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                        <NavigationMenuLink asChild className="hover:text-muted border-b-muted hover:border-b-muted data-[active]:border-b-muted h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>)}
                     {link.role === data?.data?.role &&
                       (<NavigationMenuItem key={index} className="h-full">
-                        <NavigationMenuLink asChild className="hover:text-primary border-b-primary hover:border-b-primary data-[active]:border-b-primary h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
+                        <NavigationMenuLink asChild className="hover:text-muted border-b-muted hover:border-b-muted data-[active]:border-b-muted h-full justify-center rounded-none border-y-2 border-transparent py-1.5 font-medium hover:bg-transparent data-[active]:bg-transparent!">
                           <Link to={link.href}>{link.label}</Link>
                         </NavigationMenuLink>
                       </NavigationMenuItem>)}  
@@ -124,11 +124,11 @@ export default function Navbar() {
           >
             {data?.data?.isOnline ? "Online" : "Offline"}
           </Button>}
-          {data?.data?.email && <Button onClick={handleLogout} size="sm">
+          {data?.data?.email && <Button className="bg-muted text-primary hover:bg-muted-foreground" onClick={handleLogout} size="sm">
             Logout
           </Button>}
 
-          {!data?.data?.email && <Button size={"sm"} asChild>
+          {!data?.data?.email && <Button size={"sm"} className="bg-muted text-primary hover:bg-muted-foreground" asChild>
             <Link to={"/register"}>Sign up</Link>
           </Button>}
         </div>

@@ -9,7 +9,8 @@ export const riderApi = baseApi.injectEndpoints({
                 url: "/rides/request",
                 method: "POST",
                 body: data
-            })
+            }),
+            invalidatesTags: ["RIDE"],
         }),
         getMyRides: builder.query({
             query: (params) => ({
@@ -17,6 +18,7 @@ export const riderApi = baseApi.injectEndpoints({
                 method: "GET",
                 params
             }),
+            providesTags: ["RIDE"]
         }),
     })
 })

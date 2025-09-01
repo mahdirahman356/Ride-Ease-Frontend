@@ -6,6 +6,9 @@
       "config": { "distDir": "dist" }
     }
   ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
   "env": {},
   "installCommand": "bun install",
   "buildCommand": "bun build src/main.jsx --outdir dist",

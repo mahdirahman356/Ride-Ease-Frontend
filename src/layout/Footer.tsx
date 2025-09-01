@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import footerImage from "../assets/image/footer-image.png"
 const Footer = () => {
     return (
-        <footer className="bg-muted">
+        <footer className="bg-primary">
             <div className="max-w-7xl px-6 mx-auto lg:grid lg:grid-cols-5 ">
                 <div className="hidden relative md:block lg:col-span-2 md:h-full">
                     <img
@@ -12,7 +12,7 @@ const Footer = () => {
                     />
                 </div>
 
-                <div className="px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8">
+                <div className="px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8 text-muted">
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                         <div>
                             <p>

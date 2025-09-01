@@ -107,7 +107,7 @@ The application will be accessible at `http://localhost:5173` (or the port speci
 Use the following credentials to explore the different user roles:
 
 - **Admin:**
-  - **Email:** `admin.com`
+  - **Email:** `admin@gmail.com`
   - **Password:** `123456`
 
 - **Driver:**

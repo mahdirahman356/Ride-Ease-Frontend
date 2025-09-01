@@ -1,4 +1,4 @@
-import specialOfferImage from "../../assets/image/special-offer.png"
+import specialOfferImage from "../../assets/image/Gemini_Generated_Image_ltn4cpltn4cpltn4.png"
 
 const CallToAction = () => {
     return (
@@ -13,7 +13,7 @@ const CallToAction = () => {
                 </div>
 
                 <div className="mt-8 xl:mt-12 lg:flex lg:items-center">
-                    <div className="grid w-full grid-cols-1 gap-8 lg:w-1/2 xl:gap-16 sm:grid-cols-2 mr-8">
+                    <div className="grid w-full grid-cols-1 gap-8 lg:w-1/2 xl:gap-16 sm:grid-cols-2 mr-10">
                         <div className="space-y-3">
                             <span className="inline-block p-3  rounded-xl bg-primary text-muted">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

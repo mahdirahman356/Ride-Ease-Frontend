@@ -1,10 +1,10 @@
 import { Check } from "lucide-react";
-import highlightsImage from "../../assets/image/highlights.avif"
+import highlightsImage from "../../assets/image/highlights-image.jpg"
 const ServiceHighlights = () => {
     return (
-        <section className="px-6 py-6 lg:py-16">
-            <div className="container flex flex-col lg:flex-row-reverse lg:gap-8 lg:items-center">
-                <div className="w-full lg:w-1/2 mb-12">
+        <section>
+            <div className="flex flex-col lg:gap-8 py-6 px-6 lg:py-16 space-y-6 lg:h-[32rem] lg:flex-row-reverse items-center">
+              <div className="w-full lg:w-1/2 mb-12">
                     <div className="lg:max-w-lg">
                         <h1 className="text-3xl font-semibold lg:text-4xl mb-12">One Platform, Two Powerful Experiences</h1>
                         <div className="flex flex-wrap gap-6">
@@ -71,8 +71,8 @@ const ServiceHighlights = () => {
                     </div>
                 </div>
 
-                 <div className="lg:h-96 w-full lg:w-1/2">
-                    <img className="object-cover w-full h-full rounded-md" src={highlightsImage} alt="glasses photo" />
+                <div className=" md:flex items-center justify-center w-full h-96 lg:w-1/2">
+                    <img className="object-cover w-full h-full max-w-2xl rounded-md" src={highlightsImage} alt="apple watch photo" />
                 </div>
             </div>
         </section>
