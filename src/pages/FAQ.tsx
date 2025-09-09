@@ -1,11 +1,11 @@
 
-import questionImage from "../assets/image/question-image.png"
+import questionImage from "../assets/image/faq-image.png"
 
 const faqs = [
     {
-        question: "How do I book a ride?",
+        question: "How do I request a ride as a Rider?",
         answer:
-            "Set your pickup and destination, choose a payment method, and confirm your booking.",
+            "Go to your dashboard, enter pickup and destination details, choose a payment method, and submit the request.",
         category: "Rider",
         isOpen: true
     },
@@ -20,16 +20,25 @@ const faqs = [
             "Yes, you can cancel a ride before it starts, but cancellation policies may apply.",
     },
 
-    // Driver
     {
-        question: "How do I go Online/Offline?",
+        question: "Can Admins block or suspend users?",
         answer:
-            "Drivers can toggle their availability in the dashboard to start or stop receiving ride requests.",
+            "Yes, Admins can block/unblock Riders and approve/suspend Drivers from the dashboard.",
+    },
+    {
+        question: "What happens if my account is blocked or suspended?",
+        answer:
+            "You’ll be redirected to a status page showing the reason and instructions to resolve the issue.",
     },
     {
         question: "How do I track my earnings?",
         answer:
             "Drivers can view their daily, weekly, and monthly income in the Earnings Dashboard.",
+    },
+    {
+        question: "What is the SOS button used for?",
+        answer:
+            "During an active ride, Riders and Drivers can press SOS to call police, notify emergency contacts, or share live location.",
     }];
 
 
@@ -37,23 +46,22 @@ const FAQ = () => {
 
     return (
         <div>
-            <div className="flex flex-col py-6 px-6 lg:py-16 space-y-6 md:flex-row items-start my-6 lg:my-16">
+            <div className="flex flex-col py-6 px-6 lg:py-10 space-y-6 md:flex-row items-start my-6 lg:my-10">
                 <div className="flex flex-col md:items-center w-full lg:flex-row lg:w-1/2">
                     <div className=" lg:order-2 mr-5">
-                        <h1 className="text-3xl font-semibold tracking-wide lg:text-4xl">Frequently Asked Questions</h1>
-                        <p className="my-6 md:my-4 text-muted-foreground text-sm md:text-base">Find quick answers to the most common questions about our platform. Whether you're a rider, driver, or admin, we've covered the essentials to help you get started easily.</p>
+                        <h1 className="text-4xl font-medium mb-6">Frequently <span className="font-[100]">Asked Questions</span></h1>
                         <div className="flex justify-center items-center">
-                            <img src={questionImage} alt="image" className="w-xs" />
+                            <img src={questionImage} alt="image" className="w-sm" />
                         </div>
                     </div>
                 </div>
 
                 <div className="w-full lg:w-1/2">
-                    <div className="space-y-4">
+                    <div className="">
                         {faqs.map((faq) => (
                             <details className="group [&_summary::-webkit-details-marker]:hidden" open={faq.isOpen}>
                                 <summary
-                                    className="flex items-center justify-between gap-1.5 rounded-md border bg-muted p-4"
+                                    className="flex items-center justify-between gap-1.5  border-b  p-4"
                                 >
                                     <h2 className="md:text-lg font-medium">{faq.question}</h2>
 
@@ -77,7 +85,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            
+
         </div>
     );
 };

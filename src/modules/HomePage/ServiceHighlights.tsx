@@ -3,10 +3,10 @@ import highlightsImage from "../../assets/image/highlights-image.jpg"
 const ServiceHighlights = () => {
     return (
         <section>
-            <div className="flex flex-col lg:gap-8 py-6 px-6 lg:py-16 space-y-6 lg:h-[32rem] lg:flex-row-reverse items-center">
+            <div className="flex flex-col lg:gap-8 py-6 px-6 lg:py-10 space-y-6 lg:h-[32rem] lg:flex-row items-center justify-between">
               <div className="w-full lg:w-1/2 mb-12">
-                    <div className="lg:max-w-lg">
-                        <h1 className="text-3xl font-semibold lg:text-4xl mb-12">One Platform, Two Powerful Experiences</h1>
+                    <div className="lg:max-w-lg space-y-10">
+                        <h1 className="text-4xl lg:text-5xl font-medium">Features <span className="font-[100]">That</span> <br />  Move  <span className="font-[100]">You</span></h1>
                         <div className="flex flex-wrap gap-6">
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center gap-1.5 mb-3">

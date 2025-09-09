@@ -15,7 +15,7 @@ const ChangePasswordSchema = z.object({
     newPassword: z
         .string()
         .nonempty("New Password is required")
-        .min(6, { error: "Password is too short" })
+        .min(8, { error: "Password is too short" })
 })
 
 const ChangePasswordForm = () => {

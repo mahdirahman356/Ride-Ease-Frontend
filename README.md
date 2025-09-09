@@ -10,8 +10,8 @@ The frontend is designed to interact seamlessly with the Ride Management Backend
 
 ##  Live Deployment
 
-- **Frontend:** [Link to your live frontend deployment](https://ride-ease-psi.vercel.app)
-- **Backend:** [Link to your live backend deployment](https://ride-ease-app.vercel.app/)
+- **Frontend:** [Link to your live frontend deployment](https://ride-ease-app.vercel.app)
+- **Backend:** [Link to your live backend deployment](https://ride-ease-psi.vercel.app)
 
 ***
 
@@ -102,18 +102,12 @@ The application will be accessible at `http://localhost:5173` (or the port speci
 
 ***
 
-## 🔑 Demo Credentials
 
-Use the following credentials to explore the different user roles:
+##  Demo Credentials
+
+Use the following credentials to log in as an **Admin**.  
+To explore **Driver** and **Rider** roles, please register a new account.
 
 - **Admin:**
-  - **Email:** `admin@gmail.com`
-  - **Password:** `123456`
-
-- **Driver:**
-  - **Email:** `kashimrahmanmahdi@gmail.com`
-  - **Password:** `mahdi1234`
-
-- **Rider:**
-  - **Email:** `masumrahman@gmail.com`
-  - **Password:** `mahdi1234`
+  - **Email:** `john.smith@example.com`
+  - **Password:** `12345678`

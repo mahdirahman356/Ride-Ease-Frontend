@@ -9,7 +9,6 @@ const HomePage = () => {
             <HeroSection />
             <OverviewSection />
             <ServiceHighlights />
-            {/* <FeedbackSection /> */}
             <CallToAction />
         </div>
     );
