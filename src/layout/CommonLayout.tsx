@@ -17,7 +17,7 @@ const CommonLayout = ({ children }: IProps) => {
     console.log("for rider", riderRideStatus?.data?.data?.[0]?.status)
 
     return (
-        <div className="min-h-screen flex flex-col font-outfit font-light">
+        <div className="min-h-screen flex flex-col  font-outfit font-light">
             <Navbar />
             <div className="grow-1 md:w-[95%] lg:max-w-7xl mx-auto mt-16">{children}</div>
             {(diverRideStatus?.data?.[0]?.status || riderRideStatus?.data?.data?.[0]?.status) === "IN_TRANSIT" 

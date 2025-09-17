@@ -14,6 +14,7 @@ import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRequestRideMutation } from "@/redux/features/rider/rider.api";
 import { toast } from "sonner";
+import getCoordinates from "@/utils/getCoordinates";
 
 const RideRequestSchema = z.object({
     pickupLocation: z
@@ -47,19 +48,38 @@ const RideRequestForm = () => {
             paymentMethod: ""
         }
     });
+
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        const requestRideData = {
-            ...data,
-            fareEstimation: Number(data.fareEstimation),
-        }
-        console.log(requestRideData)
+
         const toastId = toast.loading("Loading...")
         try {
+
+            const pickupLocation = await getCoordinates(data.pickupLocation);
+            const destinationLocation = await getCoordinates(data.destinationLocation);
+
+            const requestRideData = {
+                ...data,
+                pickupLocation: {
+                    address: data.pickupLocation,
+                    latitude: pickupLocation.latitude,
+                    longitude: pickupLocation.longitude
+                },
+                destinationLocation: {
+                    address: data.destinationLocation,
+                    latitude: destinationLocation.latitude,
+                    longitude: destinationLocation.longitude
+                },
+                fareEstimation: Number(data.fareEstimation),
+            }
+            console.log(requestRideData)
+
             const res = await requestRider(requestRideData).unwrap()
             console.log(res)
             if (res.success) {
                 toast.success(res.message, { id: toastId })
             }
+
+            console.log(requestRideData)
 
         } catch (error: any) {
             console.log("error", error)
@@ -75,7 +95,7 @@ const RideRequestForm = () => {
     return (
         <div>
             <div className="flex flex-col gap-6">
-                    <h1 className="text-3xl font-bold">Go anywhere with Ride Ease</h1>
+                <h1 className="text-3xl font-bold">Go anywhere with Ride Ease</h1>
                 <div className="grid gap-6">
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

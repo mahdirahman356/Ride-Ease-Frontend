@@ -80,12 +80,12 @@ const ActiveRide = () => {
                                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
                                     <div className="flex items-start gap-1">
                                         <span><MapPin size={20} className="text-muted-foreground mt-0.5" /></span>
-                                        <p>{rideData?.pickupLocation}</p>
+                                        <p>{rideData?.pickupLocation.address}</p>
                                     </div>
                                     <ArrowDownUp className="text-muted-foreground" />
                                     <div className="flex items-start gap-1">
                                         <span><MapPin size={20} className="text-muted-foreground mt-0.5" /></span>
-                                        <p>{rideData?.destinationLocation}</p>
+                                        <p>{rideData?.destinationLocation.address}</p>
                                     </div>
                                 </div>
                                 <div>

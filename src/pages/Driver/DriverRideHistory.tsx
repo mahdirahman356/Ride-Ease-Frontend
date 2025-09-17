@@ -169,8 +169,8 @@ const DriverRideHistory = () => {
                         <TableBody>
                             {data?.data?.data?.map((item: IRide) => (
                                 <TableRow key={item._id} className="text-nowrap">
-                                    <TableCell>{item.pickupLocation}</TableCell>
-                                    <TableCell>{item.destinationLocation}</TableCell>
+                                    <TableCell>{item.pickupLocation.address}</TableCell>
+                                    <TableCell>{item.destinationLocation.address}</TableCell>
                                     <TableCell> <div className="flex items-center gap-3">
                                         <div>
                                             <div className="font-medium">{item.rider?.name}</div>

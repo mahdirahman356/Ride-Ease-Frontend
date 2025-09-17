@@ -175,8 +175,8 @@ const RideHistory = () => {
                         <TableBody>
                             {data?.data?.data?.map((item: IRide) => (
                                 <TableRow key={item._id} className="text-nowrap">
-                                    <TableCell>{item.pickupLocation}</TableCell>
-                                    <TableCell>{item.destinationLocation}</TableCell>
+                                    <TableCell>{item.pickupLocation.address}</TableCell>
+                                    <TableCell>{item.destinationLocation.address}</TableCell>
                                     <TableCell>{item.paymentMethod}</TableCell>
                                     <TableCell >{item.fareEstimation}TK</TableCell>
                                     <TableCell >{item.status}</TableCell>

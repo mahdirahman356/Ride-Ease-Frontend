@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, SVGProps } from "react";
 
 export type TRole = "SUPER_ADMIN" | "ADMIN" | "USER"
 
@@ -52,12 +52,19 @@ export interface driverAndRider {
     phone: number,
     role: string
 }
+
+interface ILocation {
+    address: string,
+    latitude: number,
+    longitude: number
+}
+
 export interface IRide {
     _id: string,
     rider: driverAndRider,
     driver: driverAndRider,
-    pickupLocation: string,
-    destinationLocation: string,
+    pickupLocation: ILocation,
+    destinationLocation: ILocation,
     fareEstimation: number,
     paymentMethod: string,
     status: RideStatus,
@@ -69,6 +76,7 @@ export interface ISidebarItem {
     title: string;
     items: {
         title: string;
+        icon?: ComponentType<SVGProps<SVGSVGElement>>;
         url: string;
         component: ComponentType;
     }[];

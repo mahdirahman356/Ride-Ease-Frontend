@@ -9,7 +9,7 @@ import { Outlet } from "react-router";
 
 const DashboardLayout = () => {
     return (
-        <SidebarProvider>
+        <SidebarProvider className="font-outfit font-light">
             <AppSidebar />
             <SidebarInset>
                 <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">

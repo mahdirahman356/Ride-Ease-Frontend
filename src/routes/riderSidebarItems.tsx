@@ -3,6 +3,7 @@ import RideHistory from "@/pages/Rider/RideHistory";
 import RiderChangePassword from "@/pages/Rider/RiderChangePassword";
 import RiderManageProfile from "@/pages/Rider/RiderManageProfile";
 import type { ISidebarItem } from "@/types";
+import { GitPullRequest, History, KeyRound, UserRound } from "lucide-react";
 
 
 export const riderSidebarItems: ISidebarItem[] = [
@@ -12,11 +13,13 @@ export const riderSidebarItems: ISidebarItem[] = [
             {
                 title: "Request Ride",
                 url: "/rider/request-ride",
+                icon: GitPullRequest,
                 component: RequestRide,
             },
             {
                 title: "Ride History",
                 url: "/rider/ride-history",
+                icon: History,
                 component: RideHistory,
             },
         ],
@@ -27,11 +30,13 @@ export const riderSidebarItems: ISidebarItem[] = [
             {
                 title: "Manage Profile",
                 url: "/rider/manage-profile",
+                icon: UserRound,
                 component: RiderManageProfile,
             },
             {
                 title: "Change Password",
                 url: "/rider/change-password",
+                icon: KeyRound,
                 component: RiderChangePassword,
             },
         ],

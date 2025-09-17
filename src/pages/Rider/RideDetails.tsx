@@ -74,12 +74,12 @@ const RideDetails = () => {
                                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
                                     <div className="flex items-start gap-1">
                                         <span><MapPin size={20} className="text-muted-foreground mt-0.5" /></span>
-                                        <p>{rideDetails?.pickupLocation}</p>
+                                        <p>{rideDetails?.pickupLocation.address}</p>
                                     </div>
                                     <ArrowDownUp className="text-muted-foreground" />
                                     <div className="flex items-start gap-1">
                                         <span><MapPin size={20} className="text-muted-foreground mt-0.5" /></span>
-                                        <p>{rideDetails?.destinationLocation}</p>
+                                        <p>{rideDetails?.destinationLocation.address}</p>
                                     </div>
                                 </div>
                                 <div>

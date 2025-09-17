@@ -1,5 +1,5 @@
-import aboutSectionimage1 from "../assets/image/pexels-pavel-danilyuk-8111354.jpg"
-import aboutSectionimage2 from "../assets/image/black-male-employee-using-landline-phone_482257-124358.jpg"
+import aboutSectionimage1 from "../assets/image/about-section-image-1.jpg"
+import aboutSectionimage2 from "../assets/image/about-section-image-2.jpg"
 import { CircleSmall } from "lucide-react";
 
 const teamMembers = [
