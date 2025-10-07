@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Password from "@/components/ui/Password";
 import { useLoginMutation } from "@/redux/features/auth/auth.api";
@@ -55,9 +55,11 @@ const LoginForm = () => {
   return (
     <div>
       <div className="flex flex-col gap-6">
-        <div className="flex flex-col items-center gap-2 text-center">
-          <h1 className="text-2xl font-semibold">Login to your account</h1>
-        </div>
+        <div className="flex flex-col gap-2">
+          <h1 className="text-xl lg:text-2xl font-medium">
+            Login to <span className="font-[100]">your account </span> <br />
+           to <span className="font-[100]"> continue </span>
+          </h1>             </div>
         <div className="grid gap-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -66,7 +68,6 @@ const LoginForm = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Email"
@@ -83,7 +84,6 @@ const LoginForm = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
                     <FormControl>
                       <Password
                         {...field}
@@ -111,7 +111,7 @@ const LoginForm = () => {
             variant="outline"
             className="w-full cursor-pointer bg-muted"
           >
-            <FcGoogle className="text-2xl mr-3"/>
+            <FcGoogle className="text-2xl mr-3" />
             Login with Google
           </Button>
         </div>

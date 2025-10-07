@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
-import './App.css'
 import CommonLayout from './layout/CommonLayout'
+import "leaflet/dist/leaflet.css";
 
 function App() {
   return (

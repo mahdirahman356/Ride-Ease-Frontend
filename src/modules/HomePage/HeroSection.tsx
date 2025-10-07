@@ -18,7 +18,7 @@ const HeroSection = () => {
                         <h1 className="text-4xl lg:text-5xl font-medium">Fast <span className="font-[100]">Safe Rides</span> <br />  Your  <span className="font-[100]">Way</span></h1>
                         <p className="text-muted-foreground text-sm md:text-base">Book a ride in seconds, track it live, and reach your destination comfortably. Whether you’re a Rider, Driver, or Admin, manage everything with ease</p>
                         <div className="flex justify-center sm:justify-start">
-                            <Link to={"/rider/request-ride"}>
+                            <Link to={"/rider/ride-request"}>
                                 <Button className="flex items-center justify-between p-3 text-xs rounded-full">
                                     <span className="px-4 tracking-[0.2em] uppercase">Book Your Ride</span>
                                     <div className="flex items-center gap-2">

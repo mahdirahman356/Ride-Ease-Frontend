@@ -1,6 +1,6 @@
-import RequestRide from "@/pages/Rider/RequestRide";
 import RideHistory from "@/pages/Rider/RideHistory";
 import RiderChangePassword from "@/pages/Rider/RiderChangePassword";
+import RideRequest from "@/pages/Rider/RideRequest";
 import RiderManageProfile from "@/pages/Rider/RiderManageProfile";
 import type { ISidebarItem } from "@/types";
 import { GitPullRequest, History, KeyRound, UserRound } from "lucide-react";
@@ -12,9 +12,9 @@ export const riderSidebarItems: ISidebarItem[] = [
         items: [
             {
                 title: "Request Ride",
-                url: "/rider/request-ride",
+                url: "/rider/ride-request",
                 icon: GitPullRequest,
-                component: RequestRide,
+                component: RideRequest,
             },
             {
                 title: "Ride History",

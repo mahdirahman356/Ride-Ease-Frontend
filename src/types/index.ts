@@ -53,11 +53,20 @@ export interface driverAndRider {
     role: string
 }
 
-interface ILocation {
+export interface ILocation {
     address: string,
     latitude: number,
     longitude: number
 }
+
+export interface GeoapifyPlace {
+  properties: {
+    formatted: string;
+    lat: number;
+    lon: number;
+  };
+}
+
 
 export interface IRide {
     _id: string,

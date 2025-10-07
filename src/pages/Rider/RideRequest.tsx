@@ -44,7 +44,7 @@ const RideRequestSchema = z.object({
 
 
 
-const RequestRide = () => {
+const RideRequest = () => {
 
 
     const [requestRider] = useRequestRideMutation()
@@ -305,4 +305,4 @@ const RequestRide = () => {
     );
 };
 
-export default RequestRide;
+export default RideRequest;

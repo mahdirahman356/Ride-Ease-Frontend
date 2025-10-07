@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Password from "@/components/ui/Password";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
@@ -75,9 +75,11 @@ const RegisterForm = () => {
     return (
         <div>
             <div className="flex flex-col gap-6">
-                <div className="flex flex-col items-center gap-2 text-center">
-                    <h1 className="text-2xl font-semibold">Register your account</h1>
-                </div>
+                <div className="flex flex-col gap-2">
+                    <h1 className="text-xl lg:text-2xl font-medium">
+                        Create   your <span className="font-[100]">account and</span> <br />
+                         join our <span className="font-[100]"> community today</span>
+                    </h1>                </div>
                 <div className="grid gap-6">
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -86,7 +88,6 @@ const RegisterForm = () => {
                                 name="name"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Name</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Name" {...field} />
                                         </FormControl>
@@ -99,7 +100,6 @@ const RegisterForm = () => {
                                 name="email"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Email</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Email" {...field} />
                                         </FormControl>
@@ -112,7 +112,6 @@ const RegisterForm = () => {
                                 name="role"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Role</FormLabel>
                                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl>
                                                 <SelectTrigger className="w-full">
@@ -133,7 +132,6 @@ const RegisterForm = () => {
                                 name="password"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Password</FormLabel>
                                         <FormControl>
                                             <Password {...field} />
                                         </FormControl>
@@ -152,7 +150,7 @@ const RegisterForm = () => {
                     <Button
                         type="button"
                         variant="outline"
-                        className="w-full cursor-pointer bg-muted"
+                        className="w-full cursor-pointer bg-muted shadow-none"
                     >
                         <FcGoogle className="text-2xl mr-3" />
                         Login with Google
