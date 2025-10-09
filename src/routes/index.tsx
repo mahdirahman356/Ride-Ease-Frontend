@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
         Component: withAuth(DashboardLayout, role.rider as TRole),
         path: "/rider",
         children: [
-            { index: true, element: <Navigate to={"/rider/request-ride"} /> },
+            { index: true, element: <Navigate to={"/rider/ride-request"} /> },
             ...generateRoutes(riderSidebarItems),
             {
                 Component: RideDetails,

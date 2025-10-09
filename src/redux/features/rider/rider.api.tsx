@@ -12,6 +12,13 @@ export const riderApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["RIDE"],
         }),
+         getRiderActiveRide: builder.query({
+            query: () => ({
+                url: "/rides/assigned-ride",
+                method: "GET",
+            }),
+            providesTags: ["RIDE"]
+        }),
         getMyRides: builder.query({
             query: (params) => ({
                 url: "/rides/my-rides",
@@ -25,5 +32,6 @@ export const riderApi = baseApi.injectEndpoints({
 
 export const {
     useRequestRideMutation,
+    useGetRiderActiveRideQuery,
     useGetMyRidesQuery
 } = riderApi

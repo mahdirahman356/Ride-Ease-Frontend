@@ -16,10 +16,11 @@ import { useRequestRideMutation } from "@/redux/features/rider/rider.api";
 import { toast } from "sonner";
 import { MapContainer, Marker, Polyline, Popup, TileLayer } from 'react-leaflet'
 import FitBounds from "@/modules/Map/FitBounds";
-import useRoute from "@/hooks/useRoute";
 import { useState } from "react";
 import type { ILocation } from "@/types";
 import { useLocationSuggestions } from "@/hooks/useLocationSuggestions";
+import { useNavigate } from "react-router";
+import useMapRoute from "@/hooks/useRoute";
 
 
 
@@ -46,9 +47,8 @@ const RideRequestSchema = z.object({
 
 const RideRequest = () => {
 
-
+    const navigate = useNavigate()
     const [requestRider] = useRequestRideMutation()
-
     const [pickupLocation, setPickupLocation] = useState<ILocation | undefined>(undefined);
     const [destinationLocation, setDestinationLocation] = useState<ILocation | undefined>(undefined);
     const [activeField, setActiveField] = useState<"pickup" | "destination" | null>(null);
@@ -111,6 +111,7 @@ const RideRequest = () => {
             console.log(res)
             if (res.success) {
                 toast.success(res.message, { id: toastId })
+                navigate("/rider/active-ride")
             }
 
             console.log(requestRideData)
@@ -126,13 +127,13 @@ const RideRequest = () => {
         }
     }
 
-    const route = useRoute(pickupLocation, destinationLocation)
+    const route = useMapRoute(pickupLocation, destinationLocation)
 
 
     return (
         <div className="flex flex-col lg:flex-row gap-12 justify-between items-start">
-            <div className="flex flex-col justify-center items-center">
-                <div className="flex flex-col gap-6 w-full lg:min-w-xs">
+            <div className="flex flex-col justify-center w-full lg:w-sm">
+                <div className="flex flex-col gap-6 w-full">
                     <h1 className="text-2xl lg:text-3xl font-medium">
                         Go  <span className="font-[100]"> anywhere with </span> <br />
                         Ride <span className="font-[100]">Ease</span>
@@ -158,7 +159,7 @@ const RideRequest = () => {
                                             </FormItem>
                                         )}
                                     />
-                                    {activeField === "pickup"  && (
+                                    {activeField === "pickup" && (
                                         <ul className="absolute z-10 bg-background shadow-2xl  w-full rounded mt-1 max-h-72 overflow-y-auto custom-scroll">
                                             {notFound && (
                                                 <li className="py-6 text-center text-sm text-muted-foreground">No results</li>
@@ -194,7 +195,7 @@ const RideRequest = () => {
                                         )}
                                     />
                                     {activeField === "destination" && (
-                                       <ul className="absolute z-10 bg-background shadow-2xl  w-full rounded mt-1 max-h-60 overflow-y-auto">
+                                        <ul className="absolute z-10 bg-background shadow-2xl  w-full rounded mt-1 max-h-60 overflow-y-auto">
                                             {notFound && (
                                                 <li className="py-6 text-center text-sm text-muted-foreground">No results</li>
                                             )}
@@ -257,10 +258,10 @@ const RideRequest = () => {
                     </div>
                 </div>
             </div>
-            <div className="h-[500px] w-full rounded-lg overflow-hidden shadow">
+            <div className="h-[500px] w-full rounded-md overflow-hidden shadow">
 
                 <MapContainer
-                    center={[23.6850, 90.3563]}
+                    center={[23.8103, 90.4125]}
                     zoom={12}
                     className="h-full w-full"
                 >

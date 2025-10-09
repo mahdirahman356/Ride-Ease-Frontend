@@ -2,7 +2,7 @@ import type { ILocation } from "@/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useRoute = (pickupLocation?: ILocation, destinationLocation?: ILocation) => {
+const useMapRoute = (pickupLocation?: ILocation, destinationLocation?: ILocation) => {
 
     const [route, setRoute] = useState([]);
 
@@ -25,4 +25,4 @@ const useRoute = (pickupLocation?: ILocation, destinationLocation?: ILocation) =
     return route
 };
 
-export default useRoute;
+export default useMapRoute;
