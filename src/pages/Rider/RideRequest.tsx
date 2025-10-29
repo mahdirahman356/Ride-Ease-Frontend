@@ -52,6 +52,7 @@ const RideRequest = () => {
     const [pickupLocation, setPickupLocation] = useState<ILocation | undefined>(undefined);
     const [destinationLocation, setDestinationLocation] = useState<ILocation | undefined>(undefined);
     const [activeField, setActiveField] = useState<"pickup" | "destination" | null>(null);
+    const route = useMapRoute(pickupLocation, destinationLocation)
 
     const form = useForm<z.infer<typeof RideRequestSchema>>({
         resolver: zodResolver(RideRequestSchema),
@@ -127,12 +128,9 @@ const RideRequest = () => {
         }
     }
 
-    const route = useMapRoute(pickupLocation, destinationLocation)
-
-
     return (
-        <div className="flex flex-col lg:flex-row gap-12 justify-between items-start">
-            <div className="flex flex-col justify-center w-full lg:w-sm">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-10 justify-between items-start">
+            <div className="flex flex-col justify-center w-full lg:w-lg p-6 rounded-md border-muted border-2">
                 <div className="flex flex-col gap-6 w-full">
                     <h1 className="text-2xl lg:text-3xl font-medium">
                         Go  <span className="font-[100]"> anywhere with </span> <br />
@@ -258,11 +256,10 @@ const RideRequest = () => {
                     </div>
                 </div>
             </div>
-            <div className="h-[500px] w-full rounded-md overflow-hidden shadow">
-
+            <div className="h-[500px] w-full rounded-md overflow-hidden">
                 <MapContainer
-                    center={[23.8103, 90.4125]}
-                    zoom={12}
+                    center={[23.6850, 90.3563]}
+                    zoom={7} 
                     className="h-full w-full"
                 >
                     {/* OpenStreetMap Tiles */}
@@ -280,17 +277,19 @@ const RideRequest = () => {
                                 </Popup>
                             </Marker>
                         )}
+                        {destinationLocation && (
+                            <Marker
+                                position={[destinationLocation.latitude, destinationLocation.longitude]}
+                            >
+                                <Popup>
+                                    <b>Destination:</b> {destinationLocation.address}
+                                </Popup>
+                            </Marker>
+                        )}
 
                         {/* Destination Marker */}
                         {pickupLocation && destinationLocation && (
                             <>
-                                <Marker
-                                    position={[destinationLocation.latitude, destinationLocation.longitude]}
-                                >
-                                    <Popup>
-                                        <b>Destination:</b> {destinationLocation.address}
-                                    </Popup>
-                                </Marker>
                                 <FitBounds
                                     pickupLocation={pickupLocation}
                                     destinationLocation={destinationLocation}
