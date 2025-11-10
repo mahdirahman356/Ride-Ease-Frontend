@@ -103,7 +103,7 @@ export interface ITimeline {
     id: number,
     date: string,
     title: string,
-    description: string
+    description?: string
 }
 
 export interface IDriverActivity {

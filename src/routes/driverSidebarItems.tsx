@@ -1,4 +1,4 @@
-import ActiveRide from "@/pages/Driver/ActiveRide";
+import { DriverActiveRide } from "@/pages/Driver/DriverActiveRide";
 import DriverChangePassword from "@/pages/Driver/DriverChangePassword";
 import DriverManageProfile from "@/pages/Driver/DriverManageProfile";
 import DriverRideHistory from "@/pages/Driver/DriverRideHistory";
@@ -21,7 +21,7 @@ export const driverSidebarItems: ISidebarItem[] = [
                 title: "Active Ride",
                 icon: Radio,
                 url: "/driver/active-ride",
-                component: ActiveRide,
+                component: DriverActiveRide,
             },
             {
                 title: "Earnings",

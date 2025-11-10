@@ -1,6 +1,6 @@
 import { useGetMyRidesQuery } from "@/redux/features/rider/rider.api";
 import { useParams } from "react-router";
-import userImage from "../../assets/image/user-image.webp"
+import userImage from "../../assets/image/user-icon.jpg"
 import { ArrowDownUp, Bike, LoaderCircleIcon, MapPin, Timer } from "lucide-react";
 import { format } from "date-fns";
 import type { StatusHistory } from "@/types";

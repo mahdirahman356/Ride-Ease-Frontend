@@ -129,7 +129,7 @@ const RideHistory = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col gap-2">
                             <Label htmlFor="date" className="px-1">
                                 find by date
                             </Label>
@@ -137,7 +137,7 @@ const RideHistory = () => {
                                 <PopoverTrigger asChild>
                                     <div
                                         id="date"
-                                        className="w-48 cursor-pointer rounded-sm border text-muted-foreground px-3 py-2 flex items-center justify-between"
+                                        className="w-48 cursor-pointer rounded-sm h-12 bg-muted text-muted-foreground px-3 flex items-center justify-between"
                                     >
                                         {filters.createdAt
                                             ? format(filters.createdAt, "PPP")
